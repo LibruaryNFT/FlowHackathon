@@ -1,19 +1,16 @@
 # Summary
 
-This dapp allows a user to purchase a Coin(NFT) which is either Heads or Tails, and then they can 'flip it'. If the random outcome on-chain is the same type as their Coin, then they win double the value of the coin back(while losing the coin that was bet).
+This is my entry for the 2023 Flow Hackathon. 
 
-# Build
+This dapp allows a user to purchase a Coin(NFT) for 1 $FLOW which represents either Heads or Tails, and then the user can toss it into magical waters. If the random outcome(Heads or Tails) on-chain is the same as their Coin, then the user will receive 2 $FLOW, while losing will result in the user not receiving anything. The coin is destroyed whenever it is tossed into the magical waters.
 
-This is a react dapp using tailwindcss.
+# Technologies Used
 
-# Pre-Requisites
-
-nodejs
-
-# Building App
-
-npm install react-scripts
-npm start
+- React
+- Tailwind CSS
+- Flow CLI
+- Graffle(Flow Events monitoring)
+- Pinata(IPFS)
 
 # Emulator Quick Start Guide
 Use this to get started on the emulator and test the major functionality
@@ -54,14 +51,6 @@ flow transactions send ./cadence/transactions/flip_coin.cdc 0
 
 # Testnet Deployment
 
-Old implementation prior to 2/23
-Admin: 0x91b3acc974ec2f7d
-Storefront: 0xf788ae5c7ec2d1ae
-
-New implementation 2/23
-Admin: 0xf8568211504c7dcf
-Storefront: 0x7b2848088d45b449
-
 1. flow keys generate
 2. Enter public key: https://testnet-faucet-v2.onflow.org/
 3. Store these keys safely
@@ -97,7 +86,7 @@ flow transactions send ./cadence/transactions/mint_nft.cdc 0x7b2848088d45b449 1 
 
 16. As the storefront, list all the NFTs
 
-# Storage Reference
+# Storage and Address References
 
 Coin
 Coin.CollectionStoragePath = /storage/CoinCollection
@@ -110,75 +99,49 @@ NFTMarketplace
 /public/SaleCollection
 /storage/SaleCollection
 
+Admin: 0xf8568211504c7dcf
+Storefront: 0x7b2848088d45b449
+
 # Scripts Reference
 
 get_nft_ids.cdc
 
-    flow scripts execute ./cadence/scripts/get_nft_ids.cdc f8d6e0586b0a20c7 
-    flow scripts execute ./cadence/scripts/get_nft_ids.cdc 01cf0e2f2f715450 
-    flow scripts execute ./cadence/scripts/get_nft_ids.cdc 0x0af01d98f61b53df --network=testnet
-    flow scripts execute ./cadence/scripts/get_nft_ids.cdc 0xf14637e23022698a --network=testnet
-
-    Result: [0]
+    flow scripts execute ./cadence/scripts/get_nft_ids.cdc 0x7b2848088d45b449 
+    flow scripts execute ./cadence/scripts/get_nft_ids.cdc 0x7b2848088d45b449 --network=testnet
 
 get_collection_length.cdc
 
-    flow scripts execute ./cadence/scripts/get_collection_length.cdc f8d6e0586b0a20c7
-    flow scripts execute ./cadence/scripts/get_collection_length.cdc 01cf0e2f2f715450
-    
-
-    Result: 1
+    flow scripts execute ./cadence/scripts/get_collection_length.cdc 0x7b2848088d45b449
 
 get_nft_details.cdc
 
     flow scripts execute ./cadence/scripts/get_nft_details.cdc f8d6e0586b0a20c7
-    flow scripts execute ./cadence/scripts/get_nft_details.cdc 01cf0e2f2f715450
     flow scripts execute ./cadence/scripts/get_nft_details.cdc 0xb5d3705b4021c2ea --network=testnet
-    flow scripts execute ./cadence/scripts/get_nft_details.cdc 0x9582fcd59741438c --network=testnet
-
-    [A.f8d6e0586b0a20c7.Coin.NFT(uuid: 26, id: 0, kind: A.f8d6e0586b0a20c7.Coin.Kind(rawValue: 0), rarity: A.f8d6e0586b0a20c7.Coin.Rarity(rawValue: 0), 
-    sentBy: {0: Capability<&AnyResource{A.f8d6e0586b0a20c7.NonFungibleToken.Receiver}>(address: 0x179b6b1cb6755e31, path: /public/CoinCollection)})]
-
-    borrowEntireNFT
 
 get_nft_listings.cdc
 
-    flow scripts execute ./cadence/scripts/get_nft_listings.cdc f8d6e0586b0a20c7
-    flow scripts execute ./cadence/scripts/get_nft_listings.cdc 01cf0e2f2f715450
+    flow scripts execute ./cadence/scripts/get_nft_listings.cdc 0x7b2848088d45b449
     flow scripts execute ./cadence/scripts/get_nft_listings.cdc 0xb5d3705b4021c2ea --network=testnet
-    flow scripts execute ./cadence/scripts/get_nft_listings.cdc 0x9582fcd59741438c --network=testnet
-
-    Result: {0: A.f8d6e0586b0a20c7.NFTMarketplace.SaleItem(price: 1.00000000, nftRef: A.f8d6e0586b0a20c7.Coin.NFT(uuid: 26, id: 0, 
-    kind: A.f8d6e0586b0a20c7.Coin.Kind(rawValue: 0), rarity: A.f8d6e0586b0a20c7.Coin.Rarity(rawValue: 0)))}
-
-    borrowEntireNFT
 
 get_nft_item_full.cdc
 
-    flow scripts execute ./cadence/scripts/get_nft_item_full.cdc f8d6e0586b0a20c7 0
-    flow scripts execute ./cadence/scripts/get_nft_item_full.cdc 01cf0e2f2f715450 0
+    flow scripts execute ./cadence/scripts/get_nft_item_full.cdc 0x7b2848088d45b449 0
 
-    Result: s.3b735b01e2fa7c0c7fd2fdd50cb4633185b17d3342520757510868ad1d1ebb96.CoinItem(name: "Copper Heads", description: "A copper heads with serial number 0", 
-    thumbnail: "https://bafybeibuqzhuoj6ychlckjn6cgfb5zfurggs2x7pvvzjtdcmvizu2fg6ga.ipfs.dweb.link/sm.png", itemID: 0, resourceID: 26, kind: A.f8d6e0586b0a20c7.Coin.Kind(rawValue: 0), 
-    rarity: A.f8d6e0586b0a20c7.Coin.Rarity(rawValue: 0), owner: 0xf8d6e0586b0a20c7)
+get_metadata.cdc - Broken - To Fix
 
-get_metadata.cdc - Broken
-
-    flow scripts execute ./cadence/scripts/get_metadata.cdc f8d6e0586b0a20c7 0
-    flow scripts execute ./cadence/scripts/get_metadata.cdc 01cf0e2f2f715450 0
-
-    Result: s.c4aa0591bbf59a3d37d9fe87ef21a27559181ba3ea5309c092515b05ae527f95.NFTResult(name: "Copper Heads", description: "A copper heads with serial number 0", thumbnail: 
-    "https://bafybeibuqzhuoj6ychlckjn6cgfb5zfurggs2x7pvvzjtdcmvizu2fg6ga.ipfs.dweb.link/sm.png", itemID: 0, resourceID: 0, kind: 0, rarity: 
-    0, owner: 0xf8d6e0586b0a20c7)
+    flow scripts execute ./cadence/scripts/get_metadata.cdc 0x7b2848088d45b449 0
 
 check_coincollection.cdc
 
-    flow scripts execute ./cadence/scripts/check_coincollection.cdc f8d6e0586b0a20c7
-    flow scripts execute ./cadence/scripts/check_coincollection.cdc 0x28b2715c085b4a79 --network=testnet
+    flow scripts execute ./cadence/scripts/check_coincollection.cdc 0x7b2848088d45b449
+    flow scripts execute ./cadence/scripts/check_coincollection.cdc 0x7b2848088d45b449 --network=testnet
+
+# NFT References
+
+Heads CID: QmZrieu9iKvaSQjt9YksnkxKxghCeLPVubhAcjZovBPrio
+Tails CID: QmdKL3bdPWnh4M5HNsBoc9xTcTeUUiN4myUxmqKwVtnsL8
 
 # Transactions Reference
-
-0xf59a7e2d7b36c96f
 
 setup_coin.cdc
 
@@ -193,14 +156,14 @@ setup_coingame.cdc
 
 mint_nft.cdc
 
-    flow transactions send ./cadence/transactions/mint_nft.cdc 0xf788ae5c7ec2d1ae 0 0 bafybeigvkyawijvieedj4ret74nyeixo32nl54apw6zlgurjpkzsvo36xe --signer=testnet- account --network=testnet
+    flow transactions send ./cadence/transactions/mint_nft.cdc 0x7b2848088d45b449 0 0 QmZrieu9iKvaSQjt9YksnkxKxghCeLPVubhAcjZovBPrio --signer=testnet- account --network=testnet
 
-    flow transactions send ./cadence/transactions/mint_nft.cdc 0xf788ae5c7ec2d1ae 1 0 bafybeifraraokwjwpyvfypprleumli2n32xfijbcexjneb6rj6yyzifnzi --signer=testnet-account --network=testnet
+    flow transactions send ./cadence/transactions/mint_nft.cdc 0x7b2848088d45b449 1 0 QmdKL3bdPWnh4M5HNsBoc9xTcTeUUiN4myUxmqKwVtnsL8 --signer=testnet-account --network=testnet
 
 play_game.cdc
 
-    flow transactions send ./cadence/transactions/play_game.cdc 0 0xf8d6e0586b0a20c7 
-    flow transactions send ./cadence/transactions/play_game.cdc 0 0xf8d6e0586b0a20c7 --signer=justin
+    flow transactions send ./cadence/transactions/play_game.cdc 0 0x7b2848088d45b449 
+    flow transactions send ./cadence/transactions/play_game.cdc 0 0x7b2848088d45b449 --signer=justin
 
 setup_sales.cdc
 
@@ -212,7 +175,7 @@ flip_coin.cdc
     flow transactions send ./cadence/transactions/flip_coin.cdc f8d6e0586b0a20c7 0
     flow transactions send ./cadence/transactions/flip_coin.cdc f8d6e0586b0a20c7 0 --signer=justin
     flow transactions send ./cadence/transactions/flip_coin.cdc 01cf0e2f2f715450 0
-    flow transactions send ./cadence/transactions/flip_coin.cdc 0x37bbbe2ca948ac9e 0 --network=testnet --signer=testnet-account
+    flow transactions send ./cadence/transactions/flip_coin.cdc 0x7b2848088d45b449 0 --network=testnet --signer=testnet-account
 
 flip_coins.cdc
 
@@ -255,7 +218,7 @@ send_coin.cdc
 
     flow transactions send ./cadence/transactions/send_coin.cdc f8d6e0586b0a20c7 0 --signer=justin
     flow transactions send ./cadence/transactions/send_coin.cdc 01cf0e2f2f715450 1
-    flow transactions send ./cadence/transactions/send_coin.cdc a316f82dd1e5fd4e 1 --network=testnet --signer=testnet-account
+    flow transactions send ./cadence/transactions/send_coin.cdc 0x7b2848088d45b449 1 --network=testnet --signer=testnet-account
 
 # Other scripts/txns
 
@@ -278,6 +241,9 @@ getBalance.cdc
 
 # IPFS
 
+I no longer use the instructions below, I instead just use this service for hosting the image and pinning it.
+https://app.pinata.cloud/
+
 https://docs.ipfs.tech/how-to/command-line-quick-start/#take-your-node-online
 
 Install and run 'ipfs init'
@@ -288,11 +254,15 @@ Add the files
 Goto https://natoboram.gitlab.io/public-gateway-cacher/
 Paste the CID into IPFS and click Cache and then wait
 
-# Brand New Install
+# Building App
 
-Download visual code studio
-Sync settings
-Download git
-Install node
+1. Download visual code studio
+2. Sync settings
+3. Download git
+4. Install node
 https://nodejs.org/en/download/
-install react: npm install react-scripts npm start
+5. install react: npm install react-scripts npm start
+6. Clone this repo
+7. Install Flow CLI
+8. run 'npm install'
+9. run 'npm run start'
