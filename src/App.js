@@ -110,22 +110,37 @@ function App() {
       
         { user.loggedIn == true && coincollectioncheck == false
         ?
-        <SetupAccount/>
+        
+        <div className="font-bold text-center">
+          <div className="relative w-[500px] mx-auto">
+            <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
+          </div>
+        
+          <div className="absolute bg-gray-800 opacity-70 rounded-full bottom-0 left-0 right-0 px-8 py-1">
+          
+            <h3 className="text-xl text-white font-bold italic">
+            Oh great, I now know who you are!<br></br></h3>
+            <p className="text-sm text-white italic"><br></br>One last thing before I share what I can offer you.. <br></br>All brand new visitors I meet must promise not to jump into my waters and take my treasures! Don't worry, this is only done once and then I'll never ask you again!<br></br></p>
+            <SetupAccount/>
+          </div>
+        </div>
+        
         :
         null
         }
 
         { user.loggedIn == null
         ?
-        <div className="font-bold text-center relative">
-          <img className="flex flex-col relative justify-center items-center mx-auto md:w-1/2" src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
-        
-          <div className="absolute px-4 py-2 bg-gray-800 opacity-80 rounded-full bottom-4">
+        <div className="font-bold text-center">
+          <div className="relative w-[500px] mx-auto">
+            <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
+          </div>
+          <div className="absolute bg-gray-800 opacity-70 rounded-full bottom-0 left-0 right-0 px-8 py-1">
           
             <h3 className="text-xl text-white font-bold italic">
             Welcome traveler!<br></br></h3>
-            <p className="mt-2 text-sm text-white italic">Yes, the tales are true, I am the Waterfall of Luck.. <br></br>and luckily for you I can speak English!<br></br>
-            <br></br>I want to have some fun with you, but first I'd like to get to know who you are. Look for a way to identify yourself! Legends say there might be a big button that says 'Connect Character'.<br></br></p>
+            <p className="text-sm text-white italic">Yes, the tales are true, I am the Waterfall of Luck.. <br></br>and luckily for you I can speak English!<br></br>
+            <br></br>First let's look for a way to identify yourself! <br></br>Legends say there might be a big button that says 'Connect Character'.<br></br></p>
             
           </div>
 
@@ -137,12 +152,15 @@ function App() {
         { user.loggedIn == true && coincollectioncheck == true
         ?
         
-        <div className="font-bold text-center relative">
-          <img className="flex flex-col relative justify-center items-center mx-auto md:w-1/2" src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
-          <div className="absolute px-4 py-2 bg-gray-800 opacity-80 rounded-full bottom-4 ">
+        <div className="font-bold text-center">
+          <div className="relative w-[500px] mx-auto">
+            <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
+          </div>
+          
+          <div className="absolute bg-gray-800 opacity-70 rounded-full bottom-0 left-0 right-0 px-8 py-1">
             <h3 className="text-xl text-white font-bold italic">
             Feeling lucky today? <br></br></h3>
-            <p className="mt-2 text-sm text-white italic">I hope so!<br></br>As the great Waterfall of Luck, I will allow you to throw in a marked coin, if it lands with the marking faced up in my waters.. treasures await you!<br></br></p>
+            <p className="text-sm text-white italic">I hope so!<br></br>As the great Waterfall of Luck, I will allow you to throw in a marked coin, if it lands with the marking faced up in my waters.. treasures await you!<br></br></p>
           </div>
         </div>
 

@@ -48,10 +48,10 @@ function SetupAccount() {
 
   return (
     
-      <div className="bg-purple-600">
-        <div className="px-4 py-2 text-white rounded-full md:py-1 hover:bg-brightRedLight font-bold md:w-1/4 italic">
-        <button onClick={() => setupTheAccount()}>Oh great, I now know who you are! <br></br>One last thing before I share what I can offer you.. <br></br>All brand new visitors I meet must promise not to jump into my waters and take my treasures! Don't worry, this is only done once and then I'll never ask you again!</button>
-        </div>
+      <div>
+        
+        <button onClick={() => setupTheAccount()}>Sign Contract</button>
+        
         <SetupTransaction txId={txId} txInProgress={txInProgress} txStatus={txStatus}/>     
       </div>
     
