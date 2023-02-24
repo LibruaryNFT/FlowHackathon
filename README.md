@@ -12,6 +12,10 @@ This dapp allows a user to purchase a Coin(NFT) for 1 $FLOW which represents eit
 - Graffle(Flow Events monitoring)
 - Pinata(IPFS)
 
+# Contracts on Testnet
+
+https://testnet.flowscan.org/account/0xf8568211504c7dcf
+
 # Emulator Quick Start Guide
 Use this to get started on the emulator and test the major functionality
 

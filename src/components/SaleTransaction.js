@@ -11,16 +11,17 @@ function SaleTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ?
 
                     <div>
+                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                            <div className="bg-green-600 h-7 rounded-full" style={{width: '0%'}}></div>
+                        </div>
                         <span>
                             Transaction Status: Initializing
                             <br/>
-                            <small>Waiting for transaction approval.</small>
+                            <small className="italic">Waiting for transaction approval.</small>
                     
                         </span>
                         <br/>           
-                        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div className="bg-blue-600 h-2.5 rounded-full" style={{width: '0%'}}></div>
-                        </div>
+                        
                     </div>
 
                 : txStatus < 2
@@ -29,19 +30,16 @@ function SaleTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
 
 
                     <div>
+                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                            <div className="bg-green-600 h-7 rounded-full" style={{width: '25%'}}>25%</div>
+                        </div>
                         <span>
-                            Transaction Status: 
-                            <span className="txId">
-                                <a href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank">{txId}</a>
-                            </span>
-                        Pending
+                            Transaction Status: Pending
                         <br/>
-                        <small>The purchase transaction is currently pending.</small>
+                        <small className="italic">The purchase transaction is currently pending.</small>
                         </span>
                         <br/>
-                        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div className="bg-blue-600 h-2.5 rounded-full" style={{width: '25%'}}></div>
-                        </div>
+                        
                     </div> 
 
                 :
@@ -50,19 +48,16 @@ function SaleTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                  
                 ?
                     <div>
+                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                            <div className="bg-green-600 h-7 rounded-full" style={{width: '50%'}}>50%</div>
+                        </div>
                         <span>
-                        Transaction Status: 
-                            <span className="txId">
-                                <a href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank">{txId}</a>
-                            </span>
-                        Finalized
+                        Transaction Status: Finalized
                         <br/>
-                        <small>The transaction to purchase this coin is currently executing.</small>
+                        <small className="italic">The transaction to purchase this coin is currently executing.</small>
                         </span>
                         <br/>
-                        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div className="bg-blue-600 h-2.5 rounded-full" style={{width: '50%'}}></div>
-                        </div>
+                        
                     </div> 
 
                 : txStatus === 3
@@ -70,19 +65,16 @@ function SaleTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ?
 
                     <div>
+                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                            <div className="bg-green-600 h-7 rounded-full" style={{width: '75%'}}>75%</div>
+                        </div>
                         <span>
-                        Transaction Status: 
-                            <span className="txId">
-                                <a href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank">{txId?.slice(0,8)}...</a>
-                            </span>
-                            Executed
+                        Transaction Status: Executed
                             <br />
-                            <small>The purchase transaction is currently sealing.</small>
+                            <small className="italic">The purchase transaction is currently sealing.</small>
                         </span>
                         <br/>
-                        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div className="bg-blue-600 h-2.5 rounded-full" style={{width: '75%'}}></div>
-                        </div>
+                        
                     </div>
 
                 : txStatus === 4
@@ -90,19 +82,20 @@ function SaleTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ? 
 
                     <div>
+                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                            <div className="bg-green-600 h-7 rounded-full" style={{width: '100%'}}>100%</div>
+                        </div>
                         <span>
-                        Transaction Status: 
+                        Transaction Status: Sealed<br></br>
                         <span className="txId">
-                            <a href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank">{txId?.slice(0,8)}...</a>
+                            <a className="text-lime-500" href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank">Transaction Details: {txId?.slice(0,8)}...</a>
                         </span>
-                            Sealed
                             <br />
-                            <small>Transaction Complete. At this point the transaction result has been committed to the blockchain. You now own this coin, please refresh the page.</small>
+                            <small>Transaction Complete. <br></br>
+                            <div className="italic">Please refresh the page to see the coin appear in your Coin Satchel.</div></small>
                         </span>
                         <br/>
-                        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div className="bg-blue-600 h-2.5 rounded-full" style={{width: '100%'}}></div>
-                        </div>
+                        
                     </div>
 
                  : null}

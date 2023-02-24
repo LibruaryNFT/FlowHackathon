@@ -11,16 +11,17 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ?
 
                     <div>
+                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                            <div className="bg-green-600 h-7 rounded-full" style={{width: '0%'}}></div>
+                        </div>
                         <span>
                             Transaction Status: Initializing
                             <br/>
-                            <small>You have the coin in your hands, ready to toss it into my waters!</small>
+                            <small className="italic">You have the coin in your hands, ready to toss it into my waters!</small>
                     
                         </span>
                         <br/>           
-                        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div className="bg-blue-600 h-2.5 rounded-full" style={{width: '0%'}}></div>
-                        </div>
+                        
                     </div>
 
                 : txStatus < 2
@@ -29,19 +30,17 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
 
 
                     <div>
+                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                            <div className="bg-green-600 h-7 rounded-full" style={{width: '25%'}}>25%</div>
+                        </div>
+
                         <span>
-                            Transaction Status: 
-                            <span className="txId">
-                                <a href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank">{txId}</a>
-                            </span>
-                        Pending
+                            Transaction Status: Pending
                         <br/>
-                        <small>You have tossed the coin into the air towards my waters!</small>
+                        <small className="italic">You have tossed the coin into the air towards my waters!</small>
                         </span>
                         <br/>
-                        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div className="bg-blue-600 h-2.5 rounded-full" style={{width: '25%'}}></div>
-                        </div>
+                        
                     </div> 
 
                 :
@@ -50,19 +49,17 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
                  
                 ?
                     <div>
+                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                            <div className="bg-green-600 h-7 rounded-full" style={{width: '50%'}}>50%</div>
+                        </div>
+
                         <span>
-                        Transaction Status: 
-                            <span className="txId">
-                                <a href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank">{txId}</a>
-                            </span>
-                        Finalized
+                        Transaction Status: Finalized
                         <br/>
-                        <small>The coin has hit my waters!</small>
+                        <small className="italic">The coin has hit my waters!</small>
                         </span>
                         <br/>
-                        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div className="bg-blue-600 h-2.5 rounded-full" style={{width: '50%'}}></div>
-                        </div>
+                        
                     </div> 
 
                 : txStatus === 3
@@ -70,19 +67,16 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ?
 
                     <div>
+                         <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                            <div className="bg-green-600 h-7 rounded-full" style={{width: '75%'}}>75%</div>
+                        </div>
                         <span>
-                        Transaction Status: 
-                            <span className="txId">
-                                <a href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank">{txId?.slice(0,8)}...</a>
-                            </span>
-                            Executed
+                        Transaction Status: Executed
                             <br />
-                            <small>The coin is now sinking towards the bottom of the waters.</small>
+                            <small className="italic">The coin is now sinking towards the bottom of the waters.</small>
                         </span>
                         <br/>
-                        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div className="bg-blue-600 h-2.5 rounded-full" style={{width: '75%'}}></div>
-                        </div>
+                       
                     </div>
 
                 : txStatus === 4
@@ -90,19 +84,20 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ? 
 
                     <div>
+                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                            <div className="bg-green-600 h-7 rounded-full" style={{width: '100%'}}>100%</div>
+                        </div>
+
                         <span>
-                        Transaction Status: 
+                        Transaction Status: Sealed
                         <span className="txId">
-                            <a href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank">{txId?.slice(0,8)}...</a>
+                            <a className="text-lime-500" href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank"><br></br>Transaction Details: {txId?.slice(0,8)}...</a>
                         </span>
-                            Sealed
                             <br />
-                            <small>The coin is still falling to the bottom. We will wait a few moments, around 25 seconds, to see how it lands. Scroll to the Live Coin Result section to see the real-time result.</small>
+                            <small className="italic">Please scroll to the Live Coin Result section. <br></br>The coin should reach the bottom of the waters within 25 seconds.</small>
                         </span>
                         <br/>
-                        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div className="bg-blue-600 h-2.5 rounded-full" style={{width: '100%'}}></div>
-                        </div>
+                        
                     </div>
 
                  : null}
