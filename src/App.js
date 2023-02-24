@@ -122,7 +122,7 @@ function App() {
         
           <div className="absolute top-0 left-0 right-0 px-4 py-2 bg-gray-800 opacity-90">
             <h3 className="text-xl text-white font-bold">
-            Welcome traveler! <br></br></h3>
+            Welcome traveler!<br></br></h3>
             <p className="mt-2 text-sm text-white">Yes, the tales are true, I am the Waterfall of Luck.. <br></br>and luckily for you I can speak English!<br></br>
             <br></br>I want to have some fun with you, but first I'd like to get to know who you are. Look for a way to identify yourself! Legends say there might be a big button that says 'Connect Character'.<br></br></p>
           </div>
