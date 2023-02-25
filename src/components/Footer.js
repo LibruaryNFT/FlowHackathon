@@ -4,7 +4,7 @@ const Footer = () => {
     return (
 
     <footer className="bg-veryDarkBlue">
-        <div className="container px-6 py-2 space-y-1">
+        <div className="">
             
                 <div className="text-white">
                     <a href="https://flow.com/" aria-label="flow logo">

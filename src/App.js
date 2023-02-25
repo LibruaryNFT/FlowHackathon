@@ -64,8 +64,8 @@ function App() {
   return (
     
     <div className="min-h-screen">
-      <div className="flex flex-col mx-auto md:flex-row bg-gradient-to-r from-sky-500 to-indigo-500">
-        <div className="flex flex-col md:w-1/2">
+      <header className="flex flex-col mx-auto md:flex-row bg-gradient-to-r from-sky-500 to-indigo-500">
+        <div className="flex flex-col space-y-14 mx-auto md:w-1/2">
           <h2 className="max-w-md text-4xl font-bold text-center md:text-left md:ml-14 text-white">
             Waterfall of Luck                  
           </h2>
@@ -100,89 +100,92 @@ function App() {
             </div>
           </div>
         </div>
-      </div>        
+      </header>        
       
-      <div className="flex flex-col font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500">
+      <main>
+        <div className="flex flex-col font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500">
       
-        { user.loggedIn == true && coincollectioncheck == false
-        ?
+          { user.loggedIn == true && coincollectioncheck == false
+          ?
         
-        <div className="relative mx-auto">
-          <div className="mx-auto">
-            <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
-          </div>
+          <div className="relative mx-auto">
+            <div className="mx-auto">
+              <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
+            </div>
         
-          <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-48 pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">    
-            <h3 className="text-xl text-white font-bold italic">
-            Oh great, I now know who you are!<br></br></h3>
-            <p className="text-sm text-white italic"><br></br>One last thing before I share what I can offer you.. <br></br>All brand new visitors I meet must promise not to jump into my waters and take my treasures! Don't worry, this is only done once and then I'll never ask you again!<br></br></p>
-            <SetupAccount/>
+            <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-48 pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">    
+              <h3 className="text-xl text-white font-bold italic">
+              Oh great, I now know who you are!<br></br></h3>
+              <p className="text-sm text-white italic"><br></br>One last thing before I share what I can offer you.. <br></br>All brand new visitors I meet must promise not to jump into my waters and take my treasures! Don't worry, this is only done once and then I'll never ask you again!<br></br></p>
+              <SetupAccount/>
+            </div>
           </div>
-        </div>
-        :
-        null
-        }
+          :
+          null
+          }
 
-        { user.loggedIn == null
-        ?
-        <div className="relative mx-auto">
-          <div className="mx-auto">
-            <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
+          { user.loggedIn == null
+          ?
+          <div className="relative mx-auto">
+            <div className="mx-auto">
+              <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
+            </div>
+            <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
+              <h3 className="text-xl text-white font-bold italic">
+              Welcome traveler!<br></br><br></br></h3>
+              <p className="text-sm text-white italic">Yes, the tales are true, I am the Waterfall of Luck.. <br></br>and luckily for you I can speak English!<br></br>
+              <br></br>First let's look for a way to identify yourself! <br></br>Legends say there might be a big button that says 'Connect Character'.<br></br></p>
+            </div>
+
           </div>
-          <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
-            <h3 className="text-xl text-white font-bold italic">
-            Welcome traveler!<br></br><br></br></h3>
-            <p className="text-sm text-white italic">Yes, the tales are true, I am the Waterfall of Luck.. <br></br>and luckily for you I can speak English!<br></br>
-            <br></br>First let's look for a way to identify yourself! <br></br>Legends say there might be a big button that says 'Connect Character'.<br></br></p>
-          </div>
+          :
+          null
+          }
 
-        </div>
-        :
-        null
-        }
-
-        { user.loggedIn == true && coincollectioncheck == true
-        ?
+          { user.loggedIn == true && coincollectioncheck == true
+          ?
        
-        <div className="relative mx-auto">
-          <div className="mx-auto">
-            <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
-          </div>
+          <div className="relative mx-auto">
+            <div className="mx-auto">
+              <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
+            </div>
           
-          <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-48 pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
-            <h3 className="text-xl text-white font-bold italic">
-            Feeling lucky today? <br></br></h3>
-            <p className="text-sm text-white italic">I hope so!<br></br>As the great Waterfall of Luck, I will allow you to throw in a marked coin, if it lands with the marking faced up in my waters.. treasures await you!<br></br></p>
+            <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-48 pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
+              <h3 className="text-xl text-white font-bold italic">
+              Feeling lucky today? <br></br></h3>
+              <p className="text-sm text-white italic">I hope so!<br></br>As the great Waterfall of Luck, I will allow you to throw in a marked coin, if it lands with the marking faced up in my waters.. treasures await you!<br></br></p>
+            </div>
           </div>
+          :
+          null
+          }
+
+          { user.loggedIn == true && coincollectioncheck == true
+          ?
+          <CoinCollection address={user.addr}/>
+          :
+          null
+          }
+
+          { user.loggedIn == true && coincollectioncheck == true
+          ?
+          <CoinStore address="0x7b2848088d45b449"/>  
+          :
+          null
+          }
+
+          { user.loggedIn == true && coincollectioncheck == true
+          ?
+          <PreviousCoinFlips/>
+          :
+          null
+          }
         </div>
-        :
-        null
-        }
+      </main>
 
-        { user.loggedIn == true && coincollectioncheck == true
-        ?
-        <CoinCollection address={user.addr}/>
-        :
-        null
-        }
-
-        { user.loggedIn == true && coincollectioncheck == true
-        ?
-        <CoinStore address="0x7b2848088d45b449"/>  
-        :
-        null
-        }
-
-        { user.loggedIn == true && coincollectioncheck == true
-        ?
-        <PreviousCoinFlips/>
-        :
-        null
-        }
-      </div>
-      <div className="sticky top-[100vh]">
+      <footer className="sticky top-[100vh]">
         <Footer/>
-      </div>
+      </footer>
     </div>
     
   );
