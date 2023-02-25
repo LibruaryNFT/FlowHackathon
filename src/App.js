@@ -111,12 +111,12 @@ function App() {
         { user.loggedIn == true && coincollectioncheck == false
         ?
         
-        <div className="relative">
-          <div className="w-full h-full">
+        <div className="relative mx-auto">
+          <div className="w-full h-full mx-auto">
             <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
           </div>
         
-          <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-48 pl-1 pr-1 pt-2 pb-2 ml-auto top-1 left-1 text-white text-xs text-center leading-4">
+          <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-48 pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
           
             <h3 className="text-xl text-white font-bold italic">
             Oh great, I now know who you are!<br></br></h3>
@@ -131,11 +131,11 @@ function App() {
 
         { user.loggedIn == null
         ?
-        <div className="relative">
-          <div className="w-full h-full">
+        <div className="relative mx-auto">
+          <div className="w-full h-full mx-auto">
             <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
           </div>
-          <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-48 pl-1 pr-1 pt-2 pb-2 ml-auto top-1 left-1 text-white text-xs text-center leading-4">
+          <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
           
             <h3 className="text-xl text-white font-bold italic">
             Welcome traveler!<br></br><br></br></h3>
@@ -152,12 +152,12 @@ function App() {
         { user.loggedIn == true && coincollectioncheck == true
         ?
         
-        <div className="relative">
-          <div className="w-full h-full">
+        <div className="relative mx-auto">
+          <div className="w-full h-full mx-auto">
             <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
           </div>
           
-          <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-48 pl-1 pr-1 pt-2 pb-2 ml-auto top-1 left-1 text-white text-xs text-center leading-4">
+          <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-48 pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
             <h3 className="text-xl text-white font-bold italic">
             Feeling lucky today? <br></br></h3>
             <p className="text-sm text-white italic">I hope so!<br></br>As the great Waterfall of Luck, I will allow you to throw in a marked coin, if it lands with the marking faced up in my waters.. treasures await you!<br></br></p>
