@@ -64,7 +64,7 @@ function App() {
   return (
     
     <div className="min-h-screen">
-      <div className="flex flex-col mx-auto justify-between md:flex-row bg-gradient-to-r from-sky-500 to-indigo-500">
+      <div className="flex flex-col mx-auto md:flex-row bg-gradient-to-r from-sky-500 to-indigo-500">
         <div className="flex flex-col md:w-1/2">
           <h2 className="max-w-md text-4xl font-bold text-center md:text-left md:ml-14 text-white">
             Waterfall of Luck                  
@@ -96,20 +96,19 @@ function App() {
                   null
                   }
                 </div>
-
-               </div>
               </div>
             </div>
           </div>
-        </div>        
+        </div>
+      </div>        
       
-        <div className="flex flex-col font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500">
+      <div className="flex flex-col font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500">
       
         { user.loggedIn == true && coincollectioncheck == false
         ?
         
         <div className="relative mx-auto">
-          <div className="w-full h-full mx-auto">
+          <div className="mx-auto">
             <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
           </div>
         
@@ -127,7 +126,7 @@ function App() {
         { user.loggedIn == null
         ?
         <div className="relative mx-auto">
-          <div className="w-full h-full mx-auto">
+          <div className="mx-auto">
             <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
           </div>
           <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
@@ -144,9 +143,9 @@ function App() {
 
         { user.loggedIn == true && coincollectioncheck == true
         ?
-        
+       
         <div className="relative mx-auto">
-          <div className="w-full h-full mx-auto">
+          <div className="mx-auto">
             <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
           </div>
           
@@ -180,10 +179,10 @@ function App() {
         :
         null
         }
-        
-        
       </div>
-      <div className="sticky top-[100vh]"><Footer/></div>
+      <div className="sticky top-[100vh]">
+        <Footer/>
+      </div>
     </div>
     
   );
