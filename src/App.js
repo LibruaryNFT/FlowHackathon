@@ -65,7 +65,7 @@ function App() {
     
     <div className="min-h-screen">
       <div className="flex flex-col mx-auto justify-between md:flex-row bg-gradient-to-r from-sky-500 to-indigo-500">
-        <div className="flex flex-col h-10 md:w-1/2">
+        <div className="flex flex-col md:w-1/2">
           <h2 className="max-w-md text-4xl font-bold text-center md:text-left md:ml-14 text-white">
             Waterfall of Luck                  
           </h2>
@@ -180,9 +180,10 @@ function App() {
         :
         null
         }
-        <div className="sticky top-[100vh]"><Footer/></div>
+        
         
       </div>
+      <div className="sticky top-[100vh]"><Footer/></div>
     </div>
     
   );
