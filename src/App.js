@@ -181,8 +181,12 @@ function App() {
           null
           }
         </div>
-        <Footer/>
+        
       </main>
+
+      <footer className="bg-veryDarkBlue">
+        <Footer/>
+      </footer>
 
     </div>
     

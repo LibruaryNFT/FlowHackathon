@@ -3,7 +3,7 @@ import "../dist/output.css"
 const Footer = () => {
     return (
 
-    <footer className="bg-veryDarkBlue sticky top-[100vh]">
+    <footer>
         <div className="text-white">
             <a href="https://flow.com/" aria-label="flow logo">
                 <img src="https://nbatopshot.com/static/img/flow.svg" alt=""/>
