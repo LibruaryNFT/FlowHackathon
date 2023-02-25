@@ -181,10 +181,9 @@ function App() {
           null
           }
         </div>
+        <Footer/>
       </main>
 
-      <Footer/>
-     
     </div>
     
   );
