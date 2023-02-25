@@ -183,9 +183,8 @@ function App() {
         </div>
       </main>
 
-      <footer className="sticky top-[100vh]">
-        <Footer/>
-      </footer>
+      <Footer/>
+     
     </div>
     
   );
