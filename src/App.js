@@ -64,49 +64,46 @@ function App() {
   return (
     
     <div>
-
-    <div className="flex flex-col mx-auto space-y-6 md:space-y-6 md:flex-row bg-gradient-to-r from-sky-500 to-indigo-500">
-        <div className="flex flex-col space-y-14 md:w-1/2">
-            <h2 className="max-w-md text-4xl font-bold text-center md:text-left md:ml-14 text-white">
-                Waterfall of Luck                  
-            </h2>
+      <div className="flex flex-col mx-auto justify-between md:flex-row bg-gradient-to-r from-sky-500 to-indigo-500">
+        <div className="flex flex-col h-10 md:w-1/2">
+          <h2 className="max-w-md text-4xl font-bold text-center md:text-left md:ml-14 text-white">
+            Waterfall of Luck                  
+          </h2>
         </div>
-        <div className=" flex flex-col space-y-14 md:w-1/2">
-            <div className="flex flex-col">
-                <div className="rounded-l-full bg-gradient-to-r from-zinc-500 to-neutral-400">
-                    <div className="flex items-center space-x-2">
-                      
-
-                    { user.loggedIn == true
-                        ?
-                        <div className="px-4 py-2 text-white rounded-full md:py-1 bg-purple-600 hover:bg-brightRedLight font-bold">
-                            <button onClick={() => fcl.unauthenticate()}>Disconnect Character</button>  
-                        </div>
-                        :
-                        <div className="px-4 py-2 text-white rounded-full md:py-1 bg-purple-600 hover:bg-brightRedLight font-bold">
-                            <button onClick={() => fcl.logIn()}>Connect Character</button>
-                        </div>     
-                    }
-        
-                        <div className="text-white">
-                            <h2 className="font-bold">Name: {user.loggedIn == true ? user.addr : ''}</h2>
-                            <h2 className="font-bold">FLOW Balance: {balance}</h2>
-
-                    { user.loggedIn ==true && balance < 1
-                      ?
-                      <div>Important Notice: For Testnet Flow Balance, copy your Name and then go to the <a className="font-bold text-indigo-600" href="https://testnet-faucet-v2.onflow.org/fund-account">TestNet Faucet</a> and load your account with 1000 $FLOW. </div>
-                      :
-                      null
-                    }
-
-                        </div>
-                    </div>
+        <div className=" flex flex-col mb-auto md:w-1/2">
+          <div className="flex flex-col">
+            <div className="rounded-l-full bg-gradient-to-r from-zinc-500 to-neutral-400">
+              <div className="flex items-center space-x-2">
+                { user.loggedIn == true
+                ?
+                <div className="px-4 py-2 text-white rounded-full md:py-1 bg-purple-600 hover:bg-brightRedLight font-bold">
+                  <button onClick={() => fcl.unauthenticate()}>Disconnect Character</button>  
                 </div>
+                :
+                <div className="px-4 py-2 text-white rounded-full md:py-1 bg-purple-600 hover:bg-brightRedLight font-bold">
+                  <button onClick={() => fcl.logIn()}>Connect Character</button>
+                </div>     
+                }
+        
+                <div className="text-white">
+                  <h2 className="font-bold">Name: {user.loggedIn == true ? user.addr : ''}</h2>
+                  <h2 className="font-bold">FLOW Balance: {balance}</h2>
+
+                  { user.loggedIn ==true && balance < 1
+                  ?
+                  <div>Important Notice: For Testnet Flow Balance, copy your Name and then go to the <a className="font-bold text-indigo-600" href="https://testnet-faucet-v2.onflow.org/fund-account">TestNet Faucet</a> and load your account with 1000 $FLOW. </div>
+                  :
+                  null
+                  }
+                </div>
+
+               </div>
+              </div>
             </div>
-        </div>
-      </div>        
+          </div>
+        </div>        
       
-      <div className="flex flex-col font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500">
+        <div className="flex flex-col font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500">
       
         { user.loggedIn == true && coincollectioncheck == false
         ?
@@ -116,15 +113,13 @@ function App() {
             <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
           </div>
         
-          <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-48 pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
-          
+          <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-48 pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">    
             <h3 className="text-xl text-white font-bold italic">
             Oh great, I now know who you are!<br></br></h3>
             <p className="text-sm text-white italic"><br></br>One last thing before I share what I can offer you.. <br></br>All brand new visitors I meet must promise not to jump into my waters and take my treasures! Don't worry, this is only done once and then I'll never ask you again!<br></br></p>
             <SetupAccount/>
           </div>
         </div>
-        
         :
         null
         }
@@ -136,12 +131,10 @@ function App() {
             <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
           </div>
           <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
-          
             <h3 className="text-xl text-white font-bold italic">
             Welcome traveler!<br></br><br></br></h3>
             <p className="text-sm text-white italic">Yes, the tales are true, I am the Waterfall of Luck.. <br></br>and luckily for you I can speak English!<br></br>
             <br></br>First let's look for a way to identify yourself! <br></br>Legends say there might be a big button that says 'Connect Character'.<br></br></p>
-            
           </div>
 
         </div>
@@ -163,7 +156,6 @@ function App() {
             <p className="text-sm text-white italic">I hope so!<br></br>As the great Waterfall of Luck, I will allow you to throw in a marked coin, if it lands with the marking faced up in my waters.. treasures await you!<br></br></p>
           </div>
         </div>
-
         :
         null
         }
@@ -188,11 +180,9 @@ function App() {
         :
         null
         }
-       
-      </div>
       
-      <Footer/>
-   
+        <Footer/>
+      </div>
     </div>
     
   );
