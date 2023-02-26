@@ -34,6 +34,10 @@ function CoinCollection(props) {
 
   }, [props.address]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [txId])
+
   const clientConfig = {
     projectId: '041706f7-3ded-4e39-9697-87544103a856',
     apiKey: 'dd6325db33b24f21bb99ae520485cd41'
@@ -101,6 +105,10 @@ function CoinCollection(props) {
     console.log("getTheUserTotal", result);
   }
 
+  
+
+  
+
   const play = async (id) => {
     setTxInProgress(true);
     setTxStatus(-1);
@@ -123,79 +131,76 @@ function CoinCollection(props) {
 
         console.log(res);
       })
+    }
 
-  }
-
-
-
+    
+   
 
   return (
         
-        <div>
-          <div className="flex flex-col text-white font-bold text-center bg-gradient-to-r from-lime-500 to-lime-700">
-              <h1 className="flex flex-col text-4xl">Live Coin Result</h1>
-              <h2 className="italic">The result of your coin throw will show up here. If you want to see all previous results, check out the Stone Wall of Results</h2>
-                
-                <div className="fixed left-0 right-0 bottom-0 z-50 overflow-auto bg-gray-700 opacity-90 flex flex-col items-center justify-center">
-	                  <h2 className="text-center text-white text-xl font-semibold"><Transaction txId={txId} txInProgress={txInProgress} txStatus={txStatus}/></h2>
-                </div>
-              
-              
-              <table className="text-left table-fixed border-collapse text-sm">
-                <tbody>
-                  <tr className="border">
-                    <th className="border">Date</th>
-                    <th className="border">Name</th>
-                    <th className="border">ID</th>
-                    <th className="border">Prediction</th>
-                    <th className="border">Outcome</th>
-                    <th className="border">Result</th>              
-                  </tr>
-
-                  {chat.map((item, id) => (
-                    <tr key={id} className="border">
-                      <td className="border">{item.eventDate.slice(5, 19).replace('T',' ')}</td>
-                      <td className="border">{item.blockEventData.player == null ? '' : item.blockEventData.player.slice(2,7)}</td>
-                      <td className="border">{item.blockEventData.id}</td>
-                      <td className="border">{item.blockEventData.kind == null ? '' : (item.blockEventData.kind == 0 ? 'Heads' : 'Tails')}</td>
-                      <td className="border">{item.blockEventData.coinFlip == null ? 'Coin has landed in my waters! We are now waiting for it to float to the bottom!' : (item.blockEventData.coinFlip == 0 ? 'Heads' : 'Tails')}</td>
-                      <td className="border"><a href={`https://testnet.flowscan.org/transaction/${item.flowTransactionId}`} target="_blank">{item.blockEventData.coinresult == null ? '' : (item.blockEventData.coinresult == 0 ? <button className="px-4 py-2 text-white rounded-full md:py-1 bg-lime-500 hover:bg-brightRedLight font-bold">Winner</button> : <button className="px-4 py-2 text-white rounded-full md:py-1 bg-red-700 hover:bg-brightRedLight font-bold">Loser</button>)}</a></td>                       
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              
-          </div>
-          
-
-          <div className="flex flex-col text-center font-bold bg-gradient-to-r from-yellow-900 to-yellow-700">
-            <h1 className="text-white text-4xl pb-4">Your Coin Satchel</h1>
-            <h2 className="italic">This is where you can see all your coins that are ready to be thrown into my waters! Visit the Shop of Curiosity if you'd like to purchase more!</h2>
-          </div>
-          <div className="flex flex-col text-center font-bold bg-yellow-900">
-
-            
-            <table className="text-left table-fixed border-collapse text-white">
-                <tbody>
-                 
-
-                  {nfts.map(nft => (
-                    <tr key={nft.id} className="border">
-                      <div className="relative">
-                        <div className="">
-                          <img className="border cursor-pointer rounded-full w-64 h-64 mx-auto" src={`https://gateway.pinata.cloud/ipfs/${nft.ipfsHash}`} onClick={() => play(nft.id)}/>
-                        </div>
-                        <button className="absolute top-0 px-4 py-2 text-white md:py-1 bg-purple-600 font-bold cursor-default">Touch Coin to Toss into my Waters</button><button className="absolute bottom-0 right-0 px-4 py-2 text-white md:py-1 bg-purple-600 font-bold cursor-default">TokenID: {nft.id}<br></br>Type: {nft.kind.rawValue == 0 ? 'Heads' : 'Tails'}</button></div>                                    
-              
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-
-
-          </div>
-          
+    <div>
+      <div className="flex flex-col text-white font-bold text-center bg-gradient-to-r 
+      from-lime-500 to-lime-700">
+        <h1 className="flex flex-col text-4xl">Live Coin Result</h1>
+        <h2 className="italic">The result of your coin throw will show up here. If you want to see all previous results, check out the Stone Wall of Results
+        </h2>    
+        <div className="fixed left-0 right-0 bottom-0 z-50 overflow-auto bg-gray-700 opacity-90 flex flex-col items-center justify-center">
+	        <h2 className="text-center text-white text-xl font-semibold"><Transaction txId={txId} txInProgress={txInProgress} txStatus={txStatus}/></h2>
         </div>
+              
+        <table className="text-left table-fixed border-collapse text-sm">
+          <tbody>
+            <tr className="border">
+              <th className="border">Date</th>
+              <th className="border">Name</th>
+              <th className="border">ID</th>
+              <th className="border">Prediction</th>
+              <th className="border">Outcome</th>
+              <th className="border">Result</th>              
+            </tr>
+
+            {chat.map((item, id) => (
+              <tr key={id} className="border">
+                <td className="border">{item.eventDate.slice(5, 19).replace('T',' ')}</td>
+                <td className="border">{item.blockEventData.player == null ? '' : item.blockEventData.player.slice(2,7)}</td>
+                <td className="border">{item.blockEventData.id}</td>
+                <td className="border">{item.blockEventData.kind == null ? '' : (item.blockEventData.kind == 0 ? 'Heads' : 'Tails')}</td>
+                <td className="border">{item.blockEventData.coinFlip == null ? 'Coin has landed in my waters! We are now waiting for it to float to the bottom!' : (item.blockEventData.coinFlip == 0 ? 'Heads' : 'Tails')}</td>
+                <td className="border"><a href={`https://testnet.flowscan.org/transaction/${item.flowTransactionId}`} target="_blank">{item.blockEventData.coinresult == null ? '' : (item.blockEventData.coinresult == 0 ? <button className="px-4 py-2 text-white rounded-full md:py-1 bg-lime-500 hover:bg-brightRedLight font-bold">Winner</button> : <button className="px-4 py-2 text-white rounded-full md:py-1 bg-red-700 hover:bg-brightRedLight font-bold">Loser</button>)}</a></td>                       
+              </tr>
+             ))}
+            </tbody>
+          </table>
+              
+    </div>
+          
+    <div className="flex flex-col text-center font-bold bg-gradient-to-r from-yellow-900 to-yellow-700">
+      <h1 className="text-white text-4xl pb-4">Your Coin Satchel</h1>
+      <h2 className="italic text-white">This is where you can see all your coins that are ready to be thrown into my waters! Visit the Shop of Curiosity if you'd like to purchase more!</h2>
+    </div>
+    <div className="flex flex-col text-center font-bold bg-yellow-900">    
+      <table className="text-left table-fixed border-collapse text-white">
+        <tbody>
+                
+        {nfts.map(nft => (
+          <tr key={nft.id} className="border">
+            <div className="relative">
+              <div className="">
+                <img className="border cursor-pointer rounded-full w-64 h-64 mx-auto" src={`https://gateway.pinata.cloud/ipfs/${nft.ipfsHash}`} onClick={() => {play(nft.id)}}/>
+              </div>
+              <button className="absolute top-0 px-4 py-2 text-white md:py-1 bg-purple-600 font-bold cursor-default">Touch Coin to Toss into my Waters</button><button className="absolute bottom-0 right-0 px-4 py-2 text-white md:py-1 bg-purple-600 font-bold cursor-default">TokenID: {nft.id}<br></br>Type: {nft.kind.rawValue == 0 ? 'Heads' : 'Tails'}
+              </button>
+            </div>                                    
+              
+          </tr>
+          ))}
+        </tbody>
+      </table>
+
+
+    </div>
+          
+  </div>
 );
 
   

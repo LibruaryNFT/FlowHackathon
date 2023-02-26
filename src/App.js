@@ -160,7 +160,10 @@ function App() {
           null
           }
 
-          { user.loggedIn == true && coincollectioncheck == true
+          
+        </div>
+
+        { user.loggedIn == true && coincollectioncheck == true
           ?
           <CoinCollection address={user.addr}/>
           :
@@ -180,7 +183,6 @@ function App() {
           :
           null
           }
-        </div>
         
       </main>
 

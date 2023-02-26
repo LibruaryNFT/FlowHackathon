@@ -111,8 +111,8 @@ function CoinStore(props) {
 
   return (
     <div className="bg-gradient-to-r from-purple-500 to-pink-500">
-      <div className="flex flex-col text-center font-bold">
-          <h1 className="text-white text-4xl pb-4">Shop of Curiosity</h1>
+      <div className="flex flex-col text-center font-bold text-white">
+          <h1 className="text-4xl pb-4">Shop of Curiosity</h1>
           <h2 className="italic">Purchase a coin with a marked side of Heads or Tails. After purchasing, refresh and it will show up in your inventory, neat right?<br></br></h2>
 
           <div className="fixed left-0 right-0 bottom-0 z-50 overflow-auto bg-gray-700 opacity-90 flex flex-col items-center justify-center">
