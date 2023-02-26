@@ -7,6 +7,7 @@ import {useState, useEffect} from 'react';
 import {getNFTListings} from "../cadence/scripts/get_nft_listings.js";
 import {purchaseTx} from "../cadence/transactions/purchase.js";
 import SaleTransaction from "./SaleTransaction.js";
+import ToggleVisibility from "./ToggleVisibility.js";
 
 function CoinStore(props) {
   const [nfts, setNFTs] = useState([]);
@@ -28,6 +29,10 @@ function CoinStore(props) {
     }, 500);
   }, [nfts]);
 
+  useEffect(() => {
+    window.scrollTo(0, 700)
+  }, [txInProgress])
+
   const getUserSaleNFTs = async () => {
     const result = await fcl.send([
         fcl.script(getNFTListings),
@@ -38,6 +43,8 @@ function CoinStore(props) {
     setNFTs(result);
     console.log('getUserSaleNFTs', result);
   }
+
+  
 
   const purchase = async (id) => {
     setTxInProgress(true);
@@ -117,7 +124,17 @@ function CoinStore(props) {
 
           <div className="fixed left-0 right-0 bottom-0 z-50 overflow-auto bg-gray-700 opacity-90 flex flex-col items-center justify-center">
 
-	            <h2 className="text-center text-white text-xl font-semibold"><SaleTransaction txId={txId} txInProgress={txInProgress} txStatus={txStatus}/></h2>
+	            <h2 className="text-center text-white text-xl font-semibold">
+                
+              { txInProgress == true
+              ?
+              <ToggleVisibility>
+                <SaleTransaction txId={txId} txInProgress={txInProgress} txStatus={txStatus}/>
+              </ToggleVisibility>
+              :
+              null
+              }
+              </h2>
           </div>
           
       </div>
