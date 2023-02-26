@@ -35,8 +35,8 @@ function CoinCollection(props) {
   }, [props.address]);
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [txId])
+    window.scrollTo(0, 500)
+  }, [txInProgress])
 
   const clientConfig = {
     projectId: '041706f7-3ded-4e39-9697-87544103a856',
