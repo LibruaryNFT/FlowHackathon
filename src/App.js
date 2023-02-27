@@ -77,11 +77,11 @@ function App() {
                 { user.loggedIn == true
                 ?
                 <div className="px-4 py-2 text-white rounded-full md:py-1 bg-purple-600 hover:bg-brightRedLight font-bold">
-                  <button onClick={() => fcl.unauthenticate()}>Disconnect Character</button>  
+                  <button onClick={() => fcl.unauthenticate()}>Leave this Realm</button>  
                 </div>
                 :
                 <div className="px-4 py-2 text-white rounded-full md:py-1 bg-purple-600 hover:bg-brightRedLight font-bold">
-                  <button onClick={() => fcl.logIn()}>Connect Character</button>
+                  <button onClick={() => fcl.logIn()}>Identify Myself</button>
                 </div>     
                 }
         
@@ -113,10 +113,14 @@ function App() {
               <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
             </div>
         
-            <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">    
+            <div className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">    
               <h3 className="text-xl text-white font-bold italic">
               Oh great, I now know who you are!<br></br></h3>
-              <p className="text-sm text-white italic"><br></br>One last thing before I share what I can offer you.. <br></br>All brand new visitors I meet must promise not to jump into my waters and take my treasures! Don't worry, this is only done once and then I'll never ask you again!<br></br></p>
+              <p className="text-sm text-white italic"><br></br>However, before I reveal the secrets of my power, I ask for your agreement.
+
+              Promise me, traveler, that you will approach the waterfall with an open and pure heart. That you will not use its magic for selfish purposes, or to the detriment of others. That you will honor the gifts that come your way, and respect the balance of the universe.
+
+              In return, I promise you the opportunity to test your luck and discover the treasures that await you. I possess great power, capable of leading you towards a future filled with wonder and prosperity. But it can only do so if you are true to your word, and follow the path that is meant for you.<br></br></p>
               <SetupAccount/>
             </div>
           </div>
@@ -130,11 +134,10 @@ function App() {
             <div className="mx-auto">
               <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
             </div>
-            <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
+            <div className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
               <h3 className="text-xl text-white font-bold italic">
-              Welcome traveler!<br></br><br></br></h3>
-              <p className="text-sm text-white italic">Yes, the tales are true, I am the Waterfall of Luck.. <br></br>and luckily for you I can speak English!<br></br>
-              <br></br>First let's look for a way to identify yourself! <br></br>Legends say there might be a big button that says 'Connect Character'.<br></br></p>
+              Welcome, traveler!<br></br><br></br></h3>
+              <p className="text-sm text-white italic">I am the Waterfall of Luck, and I hold the power to make you rich beyond your wildest dreams. But before I reveal the magic of my waters, I must know who you are. <br></br>What is your name and why have you come to me? Only those with pure intentions may benefit from my powers.<br></br></p>
             </div>
 
           </div>
@@ -150,10 +153,10 @@ function App() {
               <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
             </div>
           
-            <div className="bg-gray-800 rounded-b-lg rounded-t-lg opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
+            <div className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
               <h3 className="text-xl text-white font-bold italic">
-              Feeling lucky today? <br></br></h3>
-              <p className="text-sm text-white italic">I hope so!<br></br>As the great Waterfall of Luck, I will allow you to throw in a marked coin, if it lands with the marking faced up in my waters.. treasures await you!<br></br></p>
+              Feeling lucky today?<br></br></h3>
+              <p className="text-sm text-white italic">My waters are magical ... simply throw a coin in and if the coin lands at the bottom with the markings faced up.. treasures await you!<br></br>If you don't have any coins, there is a local store called the Shop of Curiosity that sells them.</p>
             </div>
           </div>
           :
@@ -173,13 +176,6 @@ function App() {
           { user.loggedIn == true && coincollectioncheck == true
           ?
           <CoinStore address="0x7b2848088d45b449"/>  
-          :
-          null
-          }
-
-          { user.loggedIn == true && coincollectioncheck == true
-          ?
-          <PreviousCoinFlips/>
           :
           null
           }

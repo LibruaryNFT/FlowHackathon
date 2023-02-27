@@ -50,7 +50,7 @@ function SetupAccount() {
     
       <div>
         
-        <button onClick={() => setupTheAccount()}>Sign Contract</button>
+        <button onClick={() => setupTheAccount()}>Agree</button>
         
         <SetupTransaction txId={txId} txInProgress={txInProgress} txStatus={txStatus}/>     
       </div>

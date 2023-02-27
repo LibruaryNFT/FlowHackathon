@@ -14,6 +14,7 @@ import axios from "axios";
 
 import Transaction from "./Transaction.js";
 import ToggleVisibility from "./ToggleVisibility.js";
+import PreviousCoinFlips from "./PreviousCoinFlips.js";
 
 function CoinCollection(props) {
   const[nfts, setNFTs] = useState([]);
@@ -25,8 +26,6 @@ function CoinCollection(props) {
   // graffle
   const [chat, setChat] = useState([]);
   const latestChat = useRef(null);
-  const [eventsData, setEventsData] = useState([]);
-
 
   useEffect(() => {
       
@@ -34,10 +33,6 @@ function CoinCollection(props) {
       getTheUserTotal();
 
   }, [props.address]);
-
-  useEffect(() => {
-    window.scrollTo(0, 500)
-  }, [txInProgress])
 
   const clientConfig = {
     projectId: '041706f7-3ded-4e39-9697-87544103a856',
@@ -57,8 +52,6 @@ function CoinCollection(props) {
     setChat(updatedChat);
   };
 
-  console.log(chat);
-
   useEffect(() => {
     streamSDK.stream(foo);
   }, []);
@@ -70,21 +63,6 @@ function CoinCollection(props) {
     }
       , 10000);
   }, []);
-
-  useEffect(() => {
-    const getEvents = async () => {
-        // console.log("getSales fired")
-        let data
-        let res = await axios
-            .get("https://prod-test-net-dashboard-api.azurewebsites.net/api/company/6fc17a55-6975-4586-b5b5-d39e7a1bec52/search?eventType=A.91b3acc974ec2f7d.Coin.CoinFlipGame")
-        data = res.data
-        setEventsData(data)
-    }
-    getEvents()
-  }, [])
-
-  console.log('eventsData', eventsData);
-
 
   const getTheNFTDetails = async () => {
       const result = await fcl.send([
@@ -106,10 +84,6 @@ function CoinCollection(props) {
     console.log("getTheUserTotal", result);
   }
 
-  
-
-  
-
   const play = async (id) => {
     setTxInProgress(true);
     setTxStatus(-1);
@@ -129,22 +103,25 @@ function CoinCollection(props) {
       fcl.tx(transactionId).subscribe(res => {
 
         setTxStatus(res.status);
+        
 
-        console.log(res);
+        console.log('CoinCollection play', res);
       })
-    }
 
-    
-   
+      window.scrollTo(0, 500);
+
+    }
 
   return (
         
     <div>
-      <div className="flex flex-col text-white font-bold text-center bg-gradient-to-r 
-      from-lime-500 to-lime-700">
-        <h1 className="flex flex-col text-4xl">Live Coin Result</h1>
-        <h2 className="italic">The result of your coin throw will show up here. If you want to see all previous results, check out the Stone Wall of Results
-        </h2>    
+      <div className="flex flex-col text-white font-bold text-center bg-gradient-to-r from-cyan-500 to-blue-500">
+        <h1 className="flex flex-col text-4xl">Live Waterfall Chat</h1>
+        <div className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 w-full pl-1 pr-1 pt-1 pb-1 ml-auto text-white text-xs text-center leading-4">    
+              <div className="text-sm text-white italic"><br></br>Waterfall of Luck: <br></br>I will show you the results of your coin throw here. If you want to see all previous results across everyone I've met, check out the Stone Wall of Results.<br></br></div>
+
+          </div>
+        
         <div className="fixed left-0 right-0 bottom-0 z-50 overflow-auto bg-gray-700 opacity-90 flex flex-col items-center justify-center">
 	        <h2 className="text-center text-white text-xl font-semibold">
 
@@ -160,37 +137,55 @@ function CoinCollection(props) {
           
           </h2>
         </div>
-              
-        <table className="text-left table-fixed border-collapse text-sm">
+          
+        <div className="">    
+          <table className="text-left table-fixed border-collapse text-sm italic">
           <tbody>
-            <tr className="border">
-              <th className="border">Date</th>
-              <th className="border">Name</th>
-              <th className="border">ID</th>
-              <th className="border">Prediction</th>
-              <th className="border">Outcome</th>
-              <th className="border">Result</th>              
-            </tr>
-
+            
             {chat.map((item, id) => (
-              <tr key={id} className="border">
-                <td className="border">{item.eventDate.slice(5, 19).replace('T',' ')}</td>
-                <td className="border">{item.blockEventData.player == null ? '' : item.blockEventData.player.slice(2,7)}</td>
-                <td className="border">{item.blockEventData.id}</td>
-                <td className="border">{item.blockEventData.kind == null ? '' : (item.blockEventData.kind == 0 ? 'Heads' : 'Tails')}</td>
-                <td className="border">{item.blockEventData.coinFlip == null ? 'Coin has landed in my waters! We are now waiting for it to float to the bottom!' : (item.blockEventData.coinFlip == 0 ? 'Heads' : 'Tails')}</td>
-                <td className="border"><a href={`https://testnet.flowscan.org/transaction/${item.flowTransactionId}`} target="_blank">{item.blockEventData.coinresult == null ? '' : (item.blockEventData.coinresult == 0 ? <button className="px-4 py-2 text-white rounded-full md:py-1 bg-lime-500 hover:bg-brightRedLight font-bold">Winner</button> : <button className="px-4 py-2 text-white rounded-full md:py-1 bg-red-700 hover:bg-brightRedLight font-bold">Loser</button>)}</a></td>                       
+              <tr key={id} className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 w-full pl-1 pr-1 pt-1 pb-1 ml-auto text-white text-xs text-center leading-4">
+                <td className="">{item.blockEventData.id && item.blockEventData.kind == null? 'Waterfall of Luck: Your coin landed in my waters!' : ''}</td>                       
               </tr>
              ))}
             </tbody>
           </table>
-              
-    </div>
+        </div>
           
-    <div className="flex flex-col text-center font-bold bg-gradient-to-r from-yellow-900 to-yellow-700">
-      <h1 className="text-white text-4xl pb-4">Your Coin Satchel</h1>
-      <h2 className="italic text-white">This is where you can see all your coins that are ready to be thrown into my waters! Visit the Shop of Curiosity if you'd like to purchase more!</h2>
+        <div className="">  
+          <table className="text-left table-fixed border-collapse text-sm">
+          <tbody>
+    
+
+            {chat.map((item, id) => (
+              <tr key={id} className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 w-full pl-1 pr-1 pt-1 pb-1 ml-auto text-white text-xs text-center leading-4">
+                <td className=""><a href={`https://testnet.flowscan.org/transaction/${item.flowTransactionId}`} target="_blank">{item.blockEventData.coinresult == null ? '' : (item.blockEventData.coinresult == 0 ? <button className="px-4 py-2 text-white rounded-full md:py-1 bg-lime-500 hover:bg-brightRedLight font-bold">Congratulations! You Won 2 $FLOW!</button> : <button className="px-4 py-2 text-white rounded-full md:py-1 bg-red-700 hover:bg-brightRedLight font-bold">Unfortunately you didn't win this time!</button>)}</a></td>                       
+                <td className="">{item.blockEventData.kind == null ? '' : (item.blockEventData.kind == 0 ? <div>Your coin was marked like this <img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmZrieu9iKvaSQjt9YksnkxKxghCeLPVubhAcjZovBPrio"/></div> : <div>Your prediction was <img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmdKL3bdPWnh4M5HNsBoc9xTcTeUUiN4myUxmqKwVtnsL8"/></div>)}</td>
+                <td className="">{item.blockEventData.coinFlip == null ? '' : (item.blockEventData.coinFlip == 0 ? <div>Which marked coin would win<img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmZrieu9iKvaSQjt9YksnkxKxghCeLPVubhAcjZovBPrio"/></div> : <div>The outcome was <img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmdKL3bdPWnh4M5HNsBoc9xTcTeUUiN4myUxmqKwVtnsL8"/></div>)}</td>
+                
+              </tr>
+             ))}
+            </tbody>
+          </table>
+        </div>
+            
     </div>
+   
+    <PreviousCoinFlips/>
+          
+    <div className="flex flex-col text-center font-bold bg-gradient-to-r from-yellow-900 to-yellow-700 text-white">
+      <h1 className="text-white text-4xl pb-4">Your Coin Satchel</h1>
+        <button onClick={() => { getTheNFTDetails(); getTheUserTotal()}}>Refresh Results</button>
+
+        { usersupply <1
+        ?
+        <div className="">You do not currently have any coins.</div>
+        :
+        <div className="">Touch a coin to toss it into the Waterfall of Luck.</div>
+      
+      }
+    </div>
+    
+
     <div className="flex flex-col text-center font-bold bg-yellow-900">    
       <table className="text-left table-fixed border-collapse text-white">
         <tbody>
@@ -209,7 +204,7 @@ function CoinCollection(props) {
           ))}
         </tbody>
       </table>
-
+      
 
     </div>
           

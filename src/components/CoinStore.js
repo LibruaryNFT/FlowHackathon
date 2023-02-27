@@ -29,10 +29,6 @@ function CoinStore(props) {
     }, 500);
   }, [nfts]);
 
-  useEffect(() => {
-    window.scrollTo(0, 700)
-  }, [txInProgress])
-
   const getUserSaleNFTs = async () => {
     const result = await fcl.send([
         fcl.script(getNFTListings),
@@ -62,6 +58,7 @@ function CoinStore(props) {
     ]).then(fcl.decode);
 
     console.log(transactionId);
+    window.scrollTo(0, 700);
 
     setTxId(transactionId);
       fcl.tx(transactionId).subscribe(res => {
@@ -120,12 +117,17 @@ function CoinStore(props) {
     <div className="bg-gradient-to-r from-purple-500 to-pink-500">
       <div className="flex flex-col text-center font-bold text-white">
           <h1 className="text-4xl pb-4">Shop of Curiosity</h1>
-          <h2 className="italic">Purchase a coin with a marked side of Heads or Tails. After purchasing, refresh and it will show up in your inventory, neat right?<br></br></h2>
+
+          <div className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 w-full pl-1 pr-1 pt-1 pb-1 ml-auto text-white text-xs text-center leading-4">    
+              <div className="text-sm text-white italic"><br></br>Shopkeeper: <br></br>Welcome to my shop! Take a look around, I sell only the finest goods! After purchasing, refresh and it will show up in your Coin Satchel.<br></br></div>
+
+          </div>
+          
 
           <div className="fixed left-0 right-0 bottom-0 z-50 overflow-auto bg-gray-700 opacity-90 flex flex-col items-center justify-center">
 
 	            <h2 className="text-center text-white text-xl font-semibold">
-                
+
               { txInProgress == true
               ?
               <ToggleVisibility>

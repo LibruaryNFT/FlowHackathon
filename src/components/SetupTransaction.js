@@ -17,7 +17,7 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                         <span>
                             Transaction Status: Initializing
                             <br/>
-                            <small className="italic">Waiting for Waterfall of Luck's to hand over the contract to be signed.</small>
+                            <small className="italic">Waterfall of Luck: <br></br>Waiting for Waterfall of Luck's to hand over the contract to be signed.</small>
                         </span>
                         <br/>           
                         
@@ -35,7 +35,7 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                         <span>
                             Transaction Status: Pending
                         <br/>
-                        <small className="italic">You are now reading over the contract carefully.</small>
+                        <small className="italic">Waterfall of Luck: <br></br>You are now reading over the contract carefully.</small>
                         </span>
                         <br/>
                         
@@ -53,7 +53,7 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                         <span>
                         Transaction Status: Finalized
                         <br/>
-                        <small className="italic">You are still reading over the contract carefully.</small>
+                        <small className="italic">Waterfall of Luck: <br></br>You are still reading over the contract carefully.</small>
                         </span>
                         <br/>
                         
@@ -70,7 +70,7 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                         <span>
                         Transaction Status: Executed
                             <br />
-                            <small className="italic">You have read the contract and have signed your name, agreeing to not jump into the water to steal my treasures.</small>
+                            <small className="italic">Waterfall of Luck: <br></br>You have read the contract and have signed your name, agreeing to not jump into the water to steal my treasures.</small>
                         </span>
                         <br/>
                         
@@ -91,7 +91,7 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                         </span>
                             
                             <br />
-                            <small className="italic">Thank you for signing the contract, I won't ask you to do that again. Please refresh this page and then we can start the fun!</small>
+                            <small className="italic">Waterfall of Luck: <br></br>Thank you for signing the contract, I won't ask you to do that again. Please refresh this page and then we can start the fun!</small>
                         </span>
                         <br/>
                         
