@@ -11,13 +11,11 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ?
 
                     <div>
-                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
-                            <div className="bg-green-600 h-7 rounded-full" style={{width: '0%'}}></div>
-                        </div>
+                        
                         <span>
-                            Transaction Status: Initializing
+            
                             <br/>
-                            <small className="italic">Waterfall of Luck: <br></br>Waiting for Waterfall of Luck's to hand over the contract to be signed.</small>
+                            <small className="italic">I am waiting for you to make the promise! After you make the promise, I will reveal some of my secrets.</small>
                         </span>
                         <br/>           
                         
@@ -29,13 +27,11 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
 
 
                     <div>
-                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
-                            <div className="bg-green-600 h-7 rounded-full" style={{width: '25%'}}>25%</div>
-                        </div>
+                        
                         <span>
-                            Transaction Status: Pending
+                            T
                         <br/>
-                        <small className="italic">Waterfall of Luck: <br></br>You are now reading over the contract carefully.</small>
+                        <small className="italic">You have now given your response.</small>
                         </span>
                         <br/>
                         
@@ -47,13 +43,11 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                  
                 ?
                     <div>
-                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
-                            <div className="bg-green-600 h-7 rounded-full" style={{width: '50%'}}>50%</div>
-                        </div>
+                        
                         <span>
-                        Transaction Status: Finalized
+                        
                         <br/>
-                        <small className="italic">Waterfall of Luck: <br></br>You are still reading over the contract carefully.</small>
+                        <small className="italic">I am just taking a mental note of your response to keep track of who is worthy to learn of my magical abilities.</small>
                         </span>
                         <br/>
                         
@@ -64,13 +58,11 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ?
 
                     <div>
-                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
-                            <div className="bg-green-600 h-7 rounded-full" style={{width: '75%'}}>75%</div>
-                        </div>
+                        
                         <span>
-                        Transaction Status: Executed
+                        
                             <br />
-                            <small className="italic">Waterfall of Luck: <br></br>You have read the contract and have signed your name, agreeing to not jump into the water to steal my treasures.</small>
+                            <small className="italic">I am just taking a mental note of your response to keep track of who is worthy to learn of my magical abilities.</small>
                         </span>
                         <br/>
                         
@@ -81,17 +73,18 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ? 
 
                     <div>
-                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
-                            <div className="bg-green-600 h-7 rounded-full" style={{width: '100%'}}>100%</div>
-                        </div>
+                        
                         <span>
-                        Transaction Status: Sealed
+                        
                         <span className="txId">
-                            <a className="text-lime-500" href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank">{txId?.slice(0,8)}...</a>
+                            <a className="text-purple-600" href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank">Receipt of Promise</a>
                         </span>
                             
                             <br />
-                            <small className="italic">Waterfall of Luck: <br></br>Thank you for signing the contract, I won't ask you to do that again. Please refresh this page and then we can start the fun!</small>
+                            <small className="italic">Thank you for making that promise, I won't ask you to do that again. 
+
+Please refresh this page and then I will explain how my waters are magical!
+</small>
                         </span>
                         <br/>
                         
