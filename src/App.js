@@ -65,29 +65,32 @@ function App() {
     
     <div className="min-h-screen">
       <header className="flex flex-col mx-auto md:flex-row bg-gradient-to-r from-sky-500 to-indigo-500">
-        <div className="flex flex-col space-y-14 mx-auto md:w-1/2">
-          <h2 className="max-w-md text-4xl font-bold text-center md:text-left md:ml-14 text-white">
-            Waterfall of Luck                  
-          </h2>
-        </div>
+        
         <div className=" flex flex-col mb-auto md:w-1/2">
           <div className="flex flex-col">
             <div className="rounded-l-full bg-gradient-to-r from-zinc-500 to-neutral-400">
               <div className="flex items-center space-x-2">
                 { user.loggedIn == true
                 ?
-                <div className="px-4 py-2 text-white rounded-full md:py-1 bg-purple-600 hover:bg-brightRedLight font-bold">
+                <div className="border px-4 py-2 text-white rounded-full md:py-1 bg-purple-600 hover:bg-brightRedLight font-bold">
                   <button onClick={() => fcl.unauthenticate()}>Leave this Realm</button>  
                 </div>
                 :
-                <div className="px-4 py-2 text-white rounded-full md:py-1 bg-purple-600 hover:bg-brightRedLight font-bold">
+                <div className="border px-4 py-2 text-white rounded-full md:py-1 bg-purple-600 hover:bg-brightRedLight font-bold">
                   <button onClick={() => fcl.logIn()}>Identify Myself</button>
                 </div>     
                 }
         
                 <div className="text-white">
                   <h2 className="font-bold">Name: {user.loggedIn == true ? user.addr : ''}</h2>
-                  <h2 className="font-bold">FLOW Balance: {balance}</h2>
+                  <h2 className="font-bold">FLOW Balance: {balance}
+                  { user.loggedIn == true
+                  ?
+                    <button onClick={getTheBalance} className="border w-32 mx-auto text-white rounded-full bg-purple-600 hover:bg-brightRedLight">Refresh Balance</button>
+                  :
+                  null
+}
+                  </h2>
 
                   { user.loggedIn ==true && balance < 1
                   ?
@@ -103,24 +106,25 @@ function App() {
       </header>        
       
       <main>
-        <div className="flex flex-col font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500">
+        
+        <div className="flex flex-col font-bold text-white bg-land">
       
           { user.loggedIn == true && coincollectioncheck == false
           ?
         
-          <div className="relative mx-auto">
+          <div className="mx-auto">
             <div className="mx-auto">
               <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
             </div>
         
-            <div className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">    
-              <h3 className="text-xl text-white font-bold italic">
-              Oh great, I now know who you are!<br></br></h3>
-              <p className="text-sm text-white italic"><br></br>However, before I reveal the secrets of my power, I ask for your agreement.
-
-              Promise me, traveler, that you will approach the waterfall with an open and pure heart. That you will not use its magic for selfish purposes, or to the detriment of others. That you will honor the gifts that come your way, and respect the balance of the universe.
-
-              In return, I promise you the opportunity to test your luck and discover the treasures that await you. I possess great power, capable of leading you towards a future filled with wonder and prosperity. But it can only do so if you are true to your word, and follow the path that is meant for you.<br></br></p>
+            <div className="border bg-water rounded-l-full rounded-r-full w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-wave text-center leading-4">    
+              <div className="text-lg underline">Waterfall of Luck</div>
+              <br></br>
+              <div className="italic"><br></br>Oh great, I now know who you are!
+              <br></br><br></br>
+              I hold the power to change your destiny. <br></br><br></br>But before I reveal my secrets, you must first agree to something. You must promise to use my powers for good, to help others and bring happiness to those around you. <br></br><br></br>Will you make this promise to me?
+              
+              <br></br><br></br></div>
               <SetupAccount/>
             </div>
           </div>
@@ -130,14 +134,14 @@ function App() {
 
           { user.loggedIn == null
           ?
-          <div className="relative mx-auto">
+          <div className="mx-auto">
             <div className="mx-auto">
               <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
             </div>
-            <div className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
-              <h3 className="text-xl text-white font-bold italic">
-              Welcome, traveler!<br></br><br></br></h3>
-              <p className="text-sm text-white italic">I am the Waterfall of Luck, and I hold the power to make you rich beyond your wildest dreams. But before I reveal the magic of my waters, I must know who you are. <br></br>What is your name and why have you come to me? Only those with pure intentions may benefit from my powers.<br></br></p>
+            <div className="border bg-water rounded-l-full rounded-r-full w-full pl-3 pr-3 pt-2 pb-2 ml-auto top-1 text-wave text-center leading-4">
+              <div className="text-lg underline">Waterfall of Luck</div>
+              <br></br>
+              <div className="italic">Welcome, traveler!<br></br>I am the Waterfall of Luck, and I hold the power to make you rich beyond your wildest dreams. <br></br><br></br>But before I reveal the magic of my waters, I must know who you are. <br></br><br></br>What is your name and why have you come to me? Only those with pure intentions may benefit from my powers.<br></br></div>
             </div>
 
           </div>
@@ -148,37 +152,38 @@ function App() {
           { user.loggedIn == true && coincollectioncheck == true
           ?
        
-          <div className="relative mx-auto">
-            <div className="mx-auto">
+          <div className="mx-auto">
+            <div className="relative mx-auto">
               <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
             </div>
-          
-            <div className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 absolute w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-white text-xs text-center leading-4">
-              <h3 className="text-xl text-white font-bold italic">
-              Feeling lucky today?<br></br></h3>
-              <p className="text-sm text-white italic">My waters are magical ... simply throw a coin in and if the coin lands at the bottom with the markings faced up.. treasures await you!<br></br>If you don't have any coins, there is a local store called the Shop of Curiosity that sells them.</p>
+            <div>
+              <CoinCollection address={user.addr}/>
             </div>
           </div>
           :
           null
           }
 
+        { user.loggedIn == true && coincollectioncheck == true
+        ?
+        <CoinStore address="0x7b2848088d45b449"/>
           
-        </div>
+        :
+        null
+        }
 
         { user.loggedIn == true && coincollectioncheck == true
-          ?
-          <CoinCollection address={user.addr}/>
-          :
-          null
-          }
+        ?
+        <PreviousCoinFlips/>
+          
+        :
+        null
+        }
 
-          { user.loggedIn == true && coincollectioncheck == true
-          ?
-          <CoinStore address="0x7b2848088d45b449"/>  
-          :
-          null
-          }
+
+        </div>
+
+        
         
       </main>
 

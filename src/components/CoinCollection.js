@@ -14,7 +14,6 @@ import axios from "axios";
 
 import Transaction from "./Transaction.js";
 import ToggleVisibility from "./ToggleVisibility.js";
-import PreviousCoinFlips from "./PreviousCoinFlips.js";
 
 function CoinCollection(props) {
   const[nfts, setNFTs] = useState([]);
@@ -104,7 +103,6 @@ function CoinCollection(props) {
 
         setTxStatus(res.status);
         
-
         console.log('CoinCollection play', res);
       })
 
@@ -115,12 +113,24 @@ function CoinCollection(props) {
   return (
         
     <div>
-      <div className="flex flex-col text-white font-bold text-center bg-gradient-to-r from-cyan-500 to-blue-500">
-        <h1 className="flex flex-col text-4xl">Live Waterfall Chat</h1>
-        <div className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 w-full pl-1 pr-1 pt-1 pb-1 ml-auto text-white text-xs text-center leading-4">    
-              <div className="text-sm text-white italic"><br></br>Waterfall of Luck: <br></br>I will show you the results of your coin throw here. If you want to see all previous results across everyone I've met, check out the Stone Wall of Results.<br></br></div>
+      <div className="flex flex-col text-white font-bold text-center bg-land">
+        <div className="border bg-water rounded-l-full rounded-r-full w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
+              
+                <div className="text-lg underline">Waterfall of Luck 
+                </div>
+                <div className="italic">
+                <br></br>Feeling lucky today?<br></br><br></br>
+                My waters are magical ... simply predict whether a coin you throw in will be heads or tails when it lands at the bottom of my waters. <br></br><br></br> If you’re right.. treasures await you!
+                <br></br><br></br>
+                If you don't have any coins, visit the Shop of Curiosity which sells them.
 
-          </div>
+                </div>
+              
+        </div>
+            
+          
+
+               
         
         <div className="fixed left-0 right-0 bottom-0 z-50 overflow-auto bg-gray-700 opacity-90 flex flex-col items-center justify-center">
 	        <h2 className="text-center text-white text-xl font-semibold">
@@ -138,29 +148,29 @@ function CoinCollection(props) {
           </h2>
         </div>
           
-        <div className="">    
-          <table className="text-left table-fixed border-collapse text-sm italic">
+        <div className="flex flex-col font-bold text-center">    
+          <table className="italic table-fixed">
           <tbody>
             
             {chat.map((item, id) => (
-              <tr key={id} className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 w-full pl-1 pr-1 pt-1 pb-1 ml-auto text-white text-xs text-center leading-4">
-                <td className="">{item.blockEventData.id && item.blockEventData.kind == null? 'Waterfall of Luck: Your coin landed in my waters!' : ''}</td>                       
+              <tr key={id} className="border bg-water rounded-full pl-1 pr-1 pt-1 pb-4 text-wave text-center leading-4">
+                <td className="">{item.blockEventData.id && item.blockEventData.kind == null? 'Your coin landed in my waters! This should only take another 15 seconds or so to see the outcome here!' : ''}</td>                       
               </tr>
              ))}
             </tbody>
           </table>
         </div>
           
-        <div className="">  
-          <table className="text-left table-fixed border-collapse text-sm">
+        <div className="flex flex-col text-white font-bold text-center">  
+          <table className="text-left table-fixed border-collapse">
           <tbody>
     
 
             {chat.map((item, id) => (
-              <tr key={id} className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 w-full pl-1 pr-1 pt-1 pb-1 ml-auto text-white text-xs text-center leading-4">
-                <td className=""><a href={`https://testnet.flowscan.org/transaction/${item.flowTransactionId}`} target="_blank">{item.blockEventData.coinresult == null ? '' : (item.blockEventData.coinresult == 0 ? <button className="px-4 py-2 text-white rounded-full md:py-1 bg-lime-500 hover:bg-brightRedLight font-bold">Congratulations! You Won 2 $FLOW!</button> : <button className="px-4 py-2 text-white rounded-full md:py-1 bg-red-700 hover:bg-brightRedLight font-bold">Unfortunately you didn't win this time!</button>)}</a></td>                       
-                <td className="">{item.blockEventData.kind == null ? '' : (item.blockEventData.kind == 0 ? <div>Your coin was marked like this <img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmZrieu9iKvaSQjt9YksnkxKxghCeLPVubhAcjZovBPrio"/></div> : <div>Your prediction was <img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmdKL3bdPWnh4M5HNsBoc9xTcTeUUiN4myUxmqKwVtnsL8"/></div>)}</td>
-                <td className="">{item.blockEventData.coinFlip == null ? '' : (item.blockEventData.coinFlip == 0 ? <div>Which marked coin would win<img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmZrieu9iKvaSQjt9YksnkxKxghCeLPVubhAcjZovBPrio"/></div> : <div>The outcome was <img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmdKL3bdPWnh4M5HNsBoc9xTcTeUUiN4myUxmqKwVtnsL8"/></div>)}</td>
+              <tr key={id} className="border bg-water rounded-full pl-1 pr-1 pt-1 pb-4 text-wave text-center leading-4">
+                <td className=""><a href={`https://testnet.flowscan.org/transaction/${item.flowTransactionId}`} target="_blank">{item.blockEventData.coinresult == null ? '' : (item.blockEventData.coinresult == 0 ? <button className="px-4 py-2 text-white rounded-full md:py-1 bg-lime-500 hover:bg-brightRedLight font-bold">You Won 2 $FLOW!</button> : <button className="px-4 py-2 text-white rounded-full md:py-1 bg-red-700 hover:bg-brightRedLight font-bold">You didn't win this time</button>)}</a></td>                       
+                <td className="">{item.blockEventData.kind == null ? '' : (item.blockEventData.kind == 0 ? <div>Your Prediction <img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmZrieu9iKvaSQjt9YksnkxKxghCeLPVubhAcjZovBPrio"/></div> : <div>Your prediction was <img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmdKL3bdPWnh4M5HNsBoc9xTcTeUUiN4myUxmqKwVtnsL8"/></div>)}</td>
+                <td className="">{item.blockEventData.coinFlip == null ? '' : (item.blockEventData.coinFlip == 0 ? <div>Outcome<img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmZrieu9iKvaSQjt9YksnkxKxghCeLPVubhAcjZovBPrio"/></div> : <div>The outcome was <img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmdKL3bdPWnh4M5HNsBoc9xTcTeUUiN4myUxmqKwVtnsL8"/></div>)}</td>
                 
               </tr>
              ))}
@@ -170,34 +180,35 @@ function CoinCollection(props) {
             
     </div>
    
-    <PreviousCoinFlips/>
           
     <div className="flex flex-col text-center font-bold bg-gradient-to-r from-yellow-900 to-yellow-700 text-white">
-      <h1 className="text-white text-4xl pb-4">Your Coin Satchel</h1>
-        <button onClick={() => { getTheNFTDetails(); getTheUserTotal()}}>Refresh Results</button>
-
-        { usersupply <1
+      <h1 className="text-white text-4xl pb-1">Your Coin Satchel</h1>
+      { usersupply <1
         ?
         <div className="">You do not currently have any coins.</div>
         :
         <div className="">Touch a coin to toss it into the Waterfall of Luck.</div>
       
       }
+        <button onClick={() => { getTheNFTDetails(); getTheUserTotal()}} className="border w-32 mx-auto text-white rounded-full bg-purple-600 hover:bg-brightRedLight">Refresh Results</button><br></br>
+
+        
     </div>
     
 
-    <div className="flex flex-col text-center font-bold bg-yellow-900">    
+    <div className="flex flex-col text-center font-bold bg-gradient-to-r from-yellow-900 to-yellow-700">    
       <table className="text-left table-fixed border-collapse text-white">
         <tbody>
                 
         {nfts.map(nft => (
-          <tr key={nft.id} className="border">
+          <tr key={nft.id} className="">
             <div className="relative">
               <div className="">
                 <img className="border cursor-pointer rounded-full w-64 h-64 mx-auto" src={`https://gateway.pinata.cloud/ipfs/${nft.ipfsHash}`} onClick={() => {play(nft.id)}}/>
               </div>
-              <button className="absolute top-0 px-4 py-2 text-white md:py-1 bg-purple-600 font-bold cursor-default">Touch Coin to Toss into my Waters</button><button className="absolute bottom-0 right-0 px-4 py-2 text-white md:py-1 bg-purple-600 font-bold cursor-default">TokenID: {nft.id}<br></br>Type: {nft.kind.rawValue == 0 ? 'Heads' : 'Tails'}
+              <button className="absolute border rounded-l-full rounded-r-full bottom-0 left-0 px-1 py-1 text-white text-center md:py-1 bg-gradient-to-r from-zinc-500 to-neutral-400 font-bold cursor-default">Type: {nft.kind.rawValue == 0 ? 'Heads' : 'Tails'}<br></br>TokenID: {nft.id}
               </button>
+              <br></br>
             </div>                                    
               
           </tr>

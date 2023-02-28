@@ -58,7 +58,6 @@ function CoinStore(props) {
     ]).then(fcl.decode);
 
     console.log(transactionId);
-    window.scrollTo(0, 700);
 
     setTxId(transactionId);
       fcl.tx(transactionId).subscribe(res => {
@@ -116,28 +115,29 @@ function CoinStore(props) {
   return (
     <div className="bg-gradient-to-r from-purple-500 to-pink-500">
       <div className="flex flex-col text-center font-bold text-white">
-          <h1 className="text-4xl pb-4">Shop of Curiosity</h1>
+          <h1 className="text-4xl pb-1">Shop of Curiosity</h1>
 
-          <div className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 w-full pl-1 pr-1 pt-1 pb-1 ml-auto text-white text-xs text-center leading-4">    
-              <div className="text-sm text-white italic"><br></br>Shopkeeper: <br></br>Welcome to my shop! Take a look around, I sell only the finest goods! After purchasing, refresh and it will show up in your Coin Satchel.<br></br></div>
-
+          <div className="bg-fuchsia-400 border rounded-l-full rounded-r-full w-full pl-1 pr-1 pt-1 pb-1 ml-auto text-white text-center leading-4">    
+              <div className="text-white">
+                <div className="text-lg underline">Shopkeeper
+                </div>
+                <div className="italic">
+                <br></br>Welcome to my shop! Take a look around, I sell only the finest goods! After purchasing, go to your Coin Satchel to see the coin. You may need to click Refresh.<br></br></div>
+                </div>
           </div>
-          
-
-          <div className="fixed left-0 right-0 bottom-0 z-50 overflow-auto bg-gray-700 opacity-90 flex flex-col items-center justify-center">
-
-	            <h2 className="text-center text-white text-xl font-semibold">
-
-              { txInProgress == true
-              ?
-              <ToggleVisibility>
-                <SaleTransaction txId={txId} txInProgress={txInProgress} txStatus={txStatus}/>
-              </ToggleVisibility>
-              :
-              null
-              }
-              </h2>
+          { txInProgress == true
+          ?
+          <div className="bg-fuchsia-400 border rounded-l-full rounded-r-full w-full pl-1 pr-1 pt-1 pb-1 ml-auto text-white text-center leading-4">    
+              <div className="text-white">
+                <div className="text-lg underline">Shopkeeper
+                </div>
+                <div className="italic">
+                <br></br><SaleTransaction txId={txId} txInProgress={txInProgress} txStatus={txStatus}/><br></br></div>
+                </div>
           </div>
+          :
+          null}
+
           
       </div>
       <div className="flex flex-col text-center font-bold">
@@ -145,14 +145,16 @@ function CoinStore(props) {
           <tbody>      
 
             {Object.keys(randomCoins).map(id => (
-              <tr key={randomCoins[id].nftRef.id} className="border">
+              <tr key={randomCoins[id].nftRef.id} className="">
                 <td className="relative ">
                   
-                  <img className="border-dashed cursor-pointer rounded-full w-64 h-64 mx-auto" src={`https://gateway.pinata.cloud/ipfs/${randomCoins[id].nftRef.ipfsHash}`} onClick={() => purchase(randomCoins[id].nftRef.id)}/>
+                  <img className="cursor-pointer border rounded-full w-64 h-64 mx-auto" src={`https://gateway.pinata.cloud/ipfs/${randomCoins[id].nftRef.ipfsHash}`} onClick={() => purchase(randomCoins[id].nftRef.id)}/>
                 
-                  <button className="absolute top-0 px-4 py-2 text-white md:py-1 bg-purple-600 font-bold cursor-default">Touch Coin to Purchase</button>
-                  <button className="absolute bottom-0 right-0 px-4 py-2 text-white md:py-1 bg-purple-600 font-bold cursor-default">
-                    TokenID: {randomCoins[id].nftRef.id}<br></br>Type: {randomCoins[id].nftRef.kind.rawValue == 0 ? 'Heads' : 'Tails'}<br></br>Price: {Math.round(randomCoins[id].price)} $FLOW</button></td>      
+                  
+                  <button className="absolute border bg-gradient-to-r from-zinc-500 to-neutral-400 rounded-l-full rounded-r-full bottom-0 left-0 px-1 py-1 text-white md:py-1 bg-slate-700 text-center font-bold cursor-default">
+                    Type: {randomCoins[id].nftRef.kind.rawValue == 0 ? 'Heads' : 'Tails'}<br></br>Price: {Math.round(randomCoins[id].price)} $FLOW<br></br>TokenID: {randomCoins[id].nftRef.id}
+                  </button>
+                </td>      
                  
               </tr>
             ))}

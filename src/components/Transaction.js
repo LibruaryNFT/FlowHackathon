@@ -94,7 +94,7 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
                             <a className="text-lime-500" href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank"><br></br>Transaction Details: {txId?.slice(0,8)}...</a>
                         </span>
                             <br />
-                            <small className="italic">Please scroll to the Live Coin Result section. <br></br>The coin should reach the bottom of the waters within 25 seconds.</small>
+                            <small className="italic">Make sure you are checking the under the Waterfall of Luck to see your results. <br></br>The coin should reach the bottom of the waters within 25 seconds.</small>
                         </span>
                         <br/>
                         

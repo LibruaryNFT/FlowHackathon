@@ -50,7 +50,7 @@ function SetupAccount() {
     
       <div>
         
-        <button onClick={() => setupTheAccount()}>Agree</button>
+        <button className="border rounded-full w-32 mx-auto text-white bg-purple-600 hover:bg-brightRedLight" onClick={() => setupTheAccount()}>I promise!</button>
         
         <SetupTransaction txId={txId} txInProgress={txInProgress} txStatus={txStatus}/>     
       </div>

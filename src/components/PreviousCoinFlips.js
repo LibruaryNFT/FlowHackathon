@@ -38,11 +38,8 @@ function PreviousCoinFlips() {
         <div>
           <div className="flex flex-col text-white font-bold bg-gradient-to-r from-gray-400 to-gray-500">
             <h1 className="text-4xl text-center">Stone Wall of Results</h1>
-            <button onClick={getEvents}>Refresh Results</button>
-            <div className="bg-gray-800 rounded-l-full rounded-r-full opacity-70 w-full pl-1 pr-1 pt-1 pb-2 ml-auto text-white text-xs text-center leading-4">    
-              <p className="text-sm text-white italic"><br></br>Waterfall of Luck: <br></br>I etch all of the coin results onto a stone wall for everyone to see.<br></br></p>
-      
-            </div>
+            <button onClick={getEvents} className="border w-32 mx-auto text-white rounded-full bg-purple-600 hover:bg-brightRedLight">Refresh Results</button>
+           
             <table className="table-auto text-left border text-sm">
                 <tbody>
                   <tr className="border">
