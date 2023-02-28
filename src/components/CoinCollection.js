@@ -119,15 +119,22 @@ function CoinCollection(props) {
                 <div className="text-lg underline">Waterfall of Luck 
                 </div>
                 <div className="italic">
-                <br></br>Feeling lucky today?<br></br><br></br>
-                My waters are magical ... simply predict whether a coin you throw in will be heads or tails when it lands at the bottom of my waters. <br></br><br></br> If you’re right.. treasures await you!
-                <br></br><br></br>
-                If you don't have any coins, visit the Shop of Curiosity which sells them.
+                  <br></br>Feeling lucky today?<br></br><br></br>
+                  My waters are magical ... simply predict whether a coin you throw in will be heads or tails when it lands at the bottom of my waters. <br></br><br></br> If you’re right.. treasures await you!
+                  <br></br><br></br>
+                  If you don't have any coins, visit the Shop of Curiosity which sells them.
 
                 </div>
               
         </div>
-            
+        <div className="border bg-water rounded-l-full rounded-r-full w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
+                
+                <div className="italic">
+                  <br></br>
+                I almost forgot to mention that once you toss a coin in, check back here to see the results! If you'd like to see other travelers results, you can check out the Stone Wall of Results.
+                </div>
+              
+        </div>
           
 
                
