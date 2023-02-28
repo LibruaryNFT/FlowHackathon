@@ -117,12 +117,12 @@ function CoinStore(props) {
       <div className="flex flex-col text-center font-bold text-white">
           <h1 className="text-4xl pb-1">Shop of Curiosity</h1>
 
-          <div className="bg-fuchsia-400 border rounded-l-full rounded-r-full w-full pl-1 pr-1 pt-1 pb-1 ml-auto text-white text-center leading-4">    
+          <div className="bg-fuchsia-400 border rounded-l-full rounded-r-full w-full pl-3 pr-3 pt-1 pb-2 ml-auto text-white text-center leading-4">    
               <div className="text-white">
                 <div className="text-lg underline">Shopkeeper
                 </div>
                 <div className="italic">
-                <br></br>Welcome to my shop! Take a look around, I sell only the finest goods! After purchasing, go to your Coin Satchel to see the coin. You may need to click Refresh.<br></br></div>
+                <br></br>Welcome to my shop! Take a look around, I sell only the finest goods! <br></br><br></br>When you purchase, I'll provide a receipt of the transaction right here. <br></br><br></br></div>
                 </div>
           </div>
           { txInProgress == true
