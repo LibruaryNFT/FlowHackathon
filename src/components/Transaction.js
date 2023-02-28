@@ -11,14 +11,14 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ?
 
                     <div>
-                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
                             <div className="bg-gray-700 h-7 rounded-full" style={{width: '100%'}}>0% - Transaction Status: Initializing</div>
                         </div>
                         <span>
                             
                             <br/>
 
-                            <div className="border bg-water rounded-l-full rounded-r-full w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
+                            <div className="border bg-water rounded-l-lg rounded-r-lg w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
                 
                                 <div className="italic">
                                 <br></br>
@@ -39,7 +39,7 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
 
 
                     <div>
-                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
                             <div className="bg-green-600 h-7 rounded-full" style={{width: '25%'}}>25% - Pending</div>
                         </div>
 
@@ -47,7 +47,7 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
                             
                         <br/>
 
-                        <div className="border bg-water rounded-l-full rounded-r-full w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
+                        <div className="border bg-water rounded-l-lg rounded-r-lg w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
                                 <div>Waterfall of Luck</div>
                                 <div className="italic">
                                 <br></br>
@@ -68,7 +68,7 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
                  
                 ?
                     <div>
-                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
                             <div className="bg-green-600 h-7 rounded-full" style={{width: '50%'}}>50% - Finalized</div>
                         </div>
 
@@ -76,7 +76,7 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
                         
                         <br/>
 
-                        <div className="border bg-water rounded-l-full rounded-r-full w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
+                        <div className="border bg-water rounded-l-lg rounded-r-lg w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
                                 <div>Waterfall of Luck</div>
                                 <div className="italic">
                                 <br></br>
@@ -96,13 +96,13 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ?
 
                     <div>
-                         <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                         <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
                             <div className="bg-green-600 h-7 rounded-full" style={{width: '75%'}}>75% - Executed</div>
                         </div>
                         <span>
                         
                             <br />
-                            <div className="border bg-water rounded-l-full rounded-r-full w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
+                            <div className="border bg-water rounded-l-lg rounded-r-lg w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
                                 <div>Waterfall of Luck</div>
                                 <div className="italic">
                                 <br></br>
@@ -122,7 +122,7 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ? 
 
                     <div>
-                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
                             <div className="bg-green-600 h-7 rounded-full" style={{width: '100%'}}><a className="text-purple-600" href={`https://testnet.flowscan.org/transaction/${txId}`} target="_blank">100% - Transaction Sealed</a></div>
                         </div>
 
@@ -130,7 +130,7 @@ function Transaction ({txId, txInProgress, txStatus, txStatusCode}) {
                         
         
                         <br />
-                        <div className="border bg-water rounded-l-full rounded-r-full w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
+                        <div className="border bg-water rounded-l-lg rounded-r-lg w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
                                 <div>Waterfall of Luck</div>
                                 <div className="italic">
                                 <br></br>

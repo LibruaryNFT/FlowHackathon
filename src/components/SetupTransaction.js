@@ -11,7 +11,7 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ?
 
                     <div>
-                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
                             <div className="bg-green-600 h-7 rounded-full" style={{width: '0%'}}></div>
                         </div>
                         <span>
@@ -29,7 +29,7 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
 
 
                     <div>
-                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
                             <div className="bg-green-600 h-7 rounded-full" style={{width: '25%'}}>25%</div>
                         </div>
                         <span>
@@ -47,7 +47,7 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                  
                 ?
                     <div>
-                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
                             <div className="bg-green-600 h-7 rounded-full" style={{width: '50%'}}>50%</div>
                         </div>
                         <span>
@@ -64,7 +64,7 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ?
 
                     <div>
-                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
                             <div className="bg-green-600 h-7 rounded-full" style={{width: '75%'}}>75%</div>
                         </div>
                         <span>
@@ -81,7 +81,7 @@ function SetupTransaction ({txId, txInProgress, txStatus, txStatusCode}) {
                 ? 
 
                     <div>
-                        <div className="w-full bg-gray-200 rounded-full h-15 dark:bg-gray-700">
+                        <div className="w-full bg-gray-200 rounded-lg h-15 dark:bg-gray-700">
                             <div className="bg-green-600 h-7 rounded-full" style={{width: '100%'}}>100%</div>
                         </div>
                         <span>

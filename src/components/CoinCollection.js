@@ -114,7 +114,7 @@ function CoinCollection(props) {
         
     <div>
       <div className="flex flex-col text-white font-bold text-center bg-land">
-        <div className="border bg-water rounded-l-full rounded-r-full w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
+        <div className="border bg-water rounded-l-lg rounded-r-lg w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
               
                 <div className="text-lg underline">Waterfall of Luck 
                 </div>
@@ -127,7 +127,7 @@ function CoinCollection(props) {
                 </div>
               
         </div>
-        <div className="border bg-water rounded-l-full rounded-r-full w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
+        <div className="border bg-water rounded-l-lg rounded-r-lg w-full pl-3 pr-3 pt-1 pb-4 ml-auto text-wave text-center leading-4">    
                 
                 <div className="italic">
                   <br></br>
@@ -160,7 +160,7 @@ function CoinCollection(props) {
           <tbody>
             
             {chat.map((item, id) => (
-              <tr key={id} className="border bg-water rounded-full pl-1 pr-1 pt-1 pb-4 text-wave text-center leading-4">
+              <tr key={id} className="border bg-water rounded-lg pl-1 pr-1 pt-1 pb-4 text-wave text-center leading-4">
                 <td className="">{item.blockEventData.id && item.blockEventData.kind == null? 'Your coin landed in my waters! This should only take another 15 seconds or so to see the outcome here!' : ''}</td>                       
               </tr>
              ))}
@@ -174,8 +174,8 @@ function CoinCollection(props) {
     
 
             {chat.map((item, id) => (
-              <tr key={id} className="border bg-water rounded-full pl-1 pr-1 pt-1 pb-4 text-wave text-center leading-4">
-                <td className=""><a href={`https://testnet.flowscan.org/transaction/${item.flowTransactionId}`} target="_blank">{item.blockEventData.coinresult == null ? '' : (item.blockEventData.coinresult == 0 ? <button className="px-4 py-2 text-white rounded-full md:py-1 bg-lime-500 hover:bg-brightRedLight font-bold">You Won 2 $FLOW!</button> : <button className="px-4 py-2 text-white rounded-full md:py-1 bg-red-700 hover:bg-brightRedLight font-bold">You didn't win this time</button>)}</a></td>                       
+              <tr key={id} className="border bg-water rounded-lg pl-1 pr-1 pt-1 pb-4 text-wave text-center leading-4">
+                <td className=""><a href={`https://testnet.flowscan.org/transaction/${item.flowTransactionId}`} target="_blank">{item.blockEventData.coinresult == null ? '' : (item.blockEventData.coinresult == 0 ? <button className="px-4 py-2 text-white rounded-full md:py-1 bg-lime-500 hover:bg-brightRedLight font-bold">You Won 2 $FLOW!</button> : <button className="px-4 py-2 text-white rounded-lg md:py-1 bg-red-700 hover:bg-brightRedLight font-bold">You didn't win this time</button>)}</a></td>                       
                 <td className="">{item.blockEventData.kind == null ? '' : (item.blockEventData.kind == 0 ? <div>Your Prediction <img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmZrieu9iKvaSQjt9YksnkxKxghCeLPVubhAcjZovBPrio"/></div> : <div>Your prediction was <img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmdKL3bdPWnh4M5HNsBoc9xTcTeUUiN4myUxmqKwVtnsL8"/></div>)}</td>
                 <td className="">{item.blockEventData.coinFlip == null ? '' : (item.blockEventData.coinFlip == 0 ? <div>Outcome<img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmZrieu9iKvaSQjt9YksnkxKxghCeLPVubhAcjZovBPrio"/></div> : <div>The outcome was <img className="rounded-full h-32 w-32" src="https://gateway.pinata.cloud/ipfs/QmdKL3bdPWnh4M5HNsBoc9xTcTeUUiN4myUxmqKwVtnsL8"/></div>)}</td>
                 
@@ -213,7 +213,7 @@ function CoinCollection(props) {
               <div className="">
                 <img className="border cursor-pointer rounded-full w-64 h-64 mx-auto" src={`https://gateway.pinata.cloud/ipfs/${nft.ipfsHash}`} onClick={() => {play(nft.id)}}/>
               </div>
-              <button className="absolute border rounded-l-full rounded-r-full bottom-0 left-0 px-1 py-1 text-white text-center md:py-1 bg-gradient-to-r from-zinc-500 to-neutral-400 font-bold cursor-default">Type: {nft.kind.rawValue == 0 ? 'Heads' : 'Tails'}<br></br>TokenID: {nft.id}
+              <button className="absolute border rounded-l-lg rounded-r-lg bottom-0 left-0 px-1 py-1 text-white text-center md:py-1 bg-gradient-to-r from-zinc-500 to-neutral-400 font-bold cursor-default">Type: {nft.kind.rawValue == 0 ? 'Heads' : 'Tails'}<br></br>TokenID: {nft.id}
               </button>
               <br></br>
             </div>                                    

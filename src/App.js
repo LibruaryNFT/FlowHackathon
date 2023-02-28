@@ -117,7 +117,7 @@ function App() {
               <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
             </div>
         
-            <div className="border bg-water rounded-l-full rounded-r-full w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-wave text-center leading-4">    
+            <div className="border bg-water rounded-l-lg rounded-r-lg w-full pl-1 pr-1 pt-2 pb-2 ml-auto top-1 text-wave text-center leading-4">    
               <div className="text-lg underline">Waterfall of Luck</div>
               <br></br>
               <div className="italic"><br></br>Oh great, I now know who you are!
@@ -138,10 +138,10 @@ function App() {
             <div className="mx-auto">
               <img src="https://raw.githubusercontent.com/LibruaryNFT/WaterfallOfLuck/main/assets/waterfallofluck.gif"/>
             </div>
-            <div className="border bg-water rounded-l-full rounded-r-full w-full pl-3 pr-3 pt-2 pb-2 ml-auto top-1 text-wave text-center leading-4">
+            <div className="border bg-water rounded-l-lg rounded-r-lg w-full pl-3 pr-3 pt-2 pb-2 ml-auto top-1 text-wave text-center leading-4">
               <div className="text-lg underline">Waterfall of Luck</div>
               <br></br>
-              <div className="italic">Welcome, traveler!<br></br>I am the Waterfall of Luck, and I hold the power to make you rich beyond your wildest dreams. <br></br><br></br>But before I reveal the magic of my waters, I must know who you are. <br></br><br></br>What is your name and why have you come to me? Only those with pure intentions may benefit from my powers.<br></br></div>
+              <div className="italic">Welcome, traveler!<br></br>I am the Waterfall of Luck, and I hold the power to make you rich beyond your wildest dreams. <br></br><br></br>But before I reveal the magic of my waters, I must know who you are. <br></br><br></br>What is your name and why have you come to me? <br></br>Only those with pure intentions may benefit from my powers.<br></br></div>
             </div>
 
           </div>
