@@ -19,6 +19,7 @@ fcl.config()
 
 document.title = 'Waterfall of Luck';
 
+
 function App() {
 
   const[user, setUser] = useState({loggedIn: false});
@@ -41,7 +42,7 @@ function App() {
     }
 
   }, [user])
-  
+    
   const getTheBalance = async () => {
       const result = await fcl.send([
         fcl.script(getBalance),
@@ -166,7 +167,7 @@ function App() {
 
         { user.loggedIn == true && coincollectioncheck == true
         ?
-        <CoinStore address="0x7b2848088d45b449"/>
+        <CoinStore address="0x7b2848088d45b449" parentBalance={getTheBalance}/>
           
         :
         null

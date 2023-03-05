@@ -65,6 +65,8 @@ function CoinStore(props) {
         setTxStatus(res.status);
 
         console.log(res);
+        props.parentBalance();
+
       })
 
     return fcl.tx(transactionId).onceSealed();
