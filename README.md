@@ -1,6 +1,6 @@
 # Waterfall of Luck
 
-This was a project created for the first Flow Hackathon - Season 1.
+This was a project created for the first [Flow Hackathon - Season 1 from February 21st to March 1st, 2023](https://flow-hackathon.devfolio.co/overview).
 
 - [Demo Video](https://youtu.be/GJkJO2IchmY)
 - [Devfolio Submission](https://devfolio.co/projects/waterfall-of-luck-663d)
