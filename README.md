@@ -4,6 +4,10 @@ This is my entry for the 2023 Flow Hackathon.
 
 This dapp allows a user to purchase a Coin(NFT) for 1 $FLOW which represents either Heads or Tails, and then the user can toss it into magical waters. If the random outcome(Heads or Tails) on-chain is the same as their Coin, then the user will receive 2 $FLOW, while losing will result in the user not receiving anything. The coin is destroyed whenever it is tossed into the magical waters.
 
+# Video Demo
+
+https://youtu.be/GJkJO2IchmY
+
 # Live Demo on TestNet
 
 https://waterfallofluck.herokuapp.com/
