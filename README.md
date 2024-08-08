@@ -1,16 +1,12 @@
-# Summary
+# Waterfall of Luck
 
-This is my entry for the 2023 Flow Hackathon. 
+This was a project created for the first Flow Hackathon - Season 1.
+
+- [Demo Video](https://youtu.be/GJkJO2IchmY)
+- [Devfolio Submission](https://devfolio.co/projects/waterfall-of-luck-663d)
+- [Submission Slides](https://docs.google.com/presentation/d/15qUIOs8MdhkjDtJD5joLTJi56ukoS7cRPNWS8XUPqRA/edit?usp=sharing)
 
 This dapp allows a user to purchase a Coin(NFT) for 1 $FLOW which represents either Heads or Tails, and then the user can toss it into magical waters. If the random outcome(Heads or Tails) on-chain is the same as their Coin, then the user will receive 2 $FLOW, while losing will result in the user not receiving anything. The coin is destroyed whenever it is tossed into the magical waters.
-
-# Video Demo
-
-https://youtu.be/GJkJO2IchmY
-
-# Live Demo on TestNet
-
-https://waterfallofluck.herokuapp.com/
 
 # Technologies Used
 
